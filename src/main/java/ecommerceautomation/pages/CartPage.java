@@ -8,72 +8,99 @@ import org.openqa.selenium.WebElement;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Properties;
 import java.util.stream.Collectors;
 
 public class CartPage {
 
-    private WebDriver driver;
-    private WaitUtils wait;
-    private Properties locators;
+	private WebDriver driver;
+	private WaitUtils wait;
+	private static Properties locators;
 
-    public CartPage(WebDriver driver) {
-        this.driver = driver;
-        this.wait = new WaitUtils(driver, 10);
-        locators = new Properties();
-        try {
-            FileInputStream fis = new FileInputStream("src/main/resources/locators.properties");
-            locators.load(fis);
-        } catch (IOException e) {
-            e.printStackTrace();
-            throw new RuntimeException("Failed to load locators.properties file.");
-        }
-    }
+	// Static block to load properties file only once
+	static {
+		locators = new Properties();
+		try (FileInputStream fis = new FileInputStream("src/main/resources/locators.properties")) {
+			locators.load(fis);
+		} catch (IOException e) {
+			e.printStackTrace();
+			throw new RuntimeException("Failed to load locators.properties file.");
+		}
+	}
 
-    // 🔹 By Locators
-    private By productQuantity = By.xpath(locators.getProperty("cart.productQuantity"));
-    private By deleteProduct = By.xpath(locators.getProperty("cart.deleteProduct"));
-    private By allQuantities = By.xpath(locators.getProperty("cart.allQuantities"));
-    private By allProductNames = By.xpath(locators.getProperty("cart.allProductNames"));
-    private By checkoutButton= By.xpath(locators.getProperty("//a[normalize-space()='Proceed To Checkout']"));
+	public CartPage(WebDriver driver, WaitUtils wait) {
+		this.driver = driver;
+		this.wait = wait;
+	}
 
-    // 🔹 Methods
-    
-    public boolean isProductInCart(String productName) {
-        for (WebElement product : driver.findElements(allProductNames)) {
-            if (wait.waitForElementToBeVisible(product).getText().equalsIgnoreCase(productName)) {
-                return true;
-            }
-        }
-        return false;
-    }
-    public int getProductQuantity() {
-        String quantity = wait.waitForElementToBeVisible(productQuantity).getText();
-        return Integer.parseInt(quantity);
-    }
+	// ------------------- Locator Methods -------------------
+	// Use By objects for reusability and explicit waits
+	private By productQuantity = By.xpath(locators.getProperty("cart.productQuantity"));
+	private By deleteButtons = By.xpath(locators.getProperty("cart.deleteButtons"));
+	private By allQuantities = By.xpath(locators.getProperty("cart.allQuantities"));
+	private By allProductNames = By.xpath(locators.getProperty("cart.allProductNames"));
+	private By checkoutButton = By.xpath(locators.getProperty("cart.checkoutButton"));
+	private By checkoutModal = By.xpath(locators.getProperty("cart.checkoutModal"));
+	private By registerLoginButtonAtModal = By.xpath(locators.getProperty("cart.RegisterLoginButtonAtModal"));
+	//private By modalContent = By.xpath("//div[@class='modal-content']");
+	private By cartPageLink = By.xpath("//a[@href='/view_cart']");
 
-    public void removeProduct() {
-        wait.waitForElementToBeClickable(deleteProduct).click();
-    }
-    
-    public void proceedToCheckout() {
-    	wait.waitForElementToBeClickable(checkoutButton).click();
-    }
+	// ------------------- Public Methods -------------------
+	public boolean isProductInCart(String productName) {
+		List<WebElement> products = wait.waitForAllElementsToBeVisible(allProductNames);
+		return products.stream().anyMatch(product -> product.getText().equalsIgnoreCase(productName));
+	}
 
-    public List<Integer> getAllProductQuantities() {
-        return driver.findElements(allQuantities).stream()
-                .map(qty -> Integer.parseInt(wait.waitForElementToBeVisible(qty).getAttribute("value"))).collect(Collectors.toList());
-    }
+	public int getProductQuantity() {
+		String quantity = wait.waitForElementToBeVisible(productQuantity).getText();
+		return Integer.parseInt(quantity);
+	}
 
-    public void removeProduct(String productName) {
-        List<WebElement> names = driver.findElements(allProductNames);
-        List<WebElement> deletes = driver.findElements(allDeleteButtons);
+	public void removeProduct(String productName) {
+		// Wait for all product names to be visible.
+		List<WebElement> names = wait.waitForAllElementsToBeVisible(allProductNames);
 
-       for (int i = 0; i < names.size(); i++) {
-           if (wait.waitForElementToBeVisible(names.get(i)).getText().equalsIgnoreCase(productName)) {
-               wait.waitForElementToBeClickable(deletes.get(i)).click();
-               break;
-           }
-        }
-    }
+		// Find the index of the product you want to remove
+		int productIndex = -1;
+		for (int i = 0; i < names.size(); i++) {
+			if (names.get(i).getText().equalsIgnoreCase(productName)) {
+				productIndex = i;
+				break;
+			}
+		}
+
+		if (productIndex != -1) {
+			// Construct the locator for the specific delete button using the index
+			// This is a much more robust approach than trying to get the WebElement
+			// directly
+			String deleteButtonXpath = locators.getProperty("cart.deleteButtons") + "[" + (productIndex + 1) + "]";
+			By deleteButtonLocator = By.xpath(deleteButtonXpath);
+
+			// Pass the By locator to the WaitUtils method
+			wait.waitForElementToBeClickable(deleteButtonLocator).click();
+		} else {
+			throw new NoSuchElementException("Product '" + productName + "' not found in the cart.");
+		}
+	}
+
+	public CheckoutPage proceedToCheckout() {
+		wait.waitForElementToBeClickable(checkoutButton).click();
+
+		// Handle modal if it appears (user not logged in)
+		if (wait.isElementVisible(checkoutModal, 3)) {
+			wait.waitForElementToBeClickable(registerLoginButtonAtModal).click();
+		}
+		return new CheckoutPage(driver, wait);
+	}
+
+	public List<Integer> getAllProductQuantities() {
+		return wait.waitForAllElementsToBeVisible(allQuantities).stream()
+				.map(qty -> Integer.parseInt(qty.getAttribute("value"))).collect(Collectors.toList());
+	}
+
+	public CartPage cartPageLink() {
+		wait.waitForElementToBeClickable(cartPageLink).click();
+		return new CartPage(driver, wait);
+	}
 }

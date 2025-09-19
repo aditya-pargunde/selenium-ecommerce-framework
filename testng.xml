@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="EcommerceSuite">
+    <!-- You can run multiple <test> tags if needed -->
+    <test name="PaymentTests">
+        <classes>
+            <class name="ecommerceautomation.tests.PaymentTest"/>
+        </classes>
+    </test>
+</suite>

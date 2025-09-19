@@ -1,29 +1,23 @@
 package ecommerceautomation.pages;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.util.Properties;
-
+import ecommerceautomation.utils.WaitUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import ecommerceautomation.utils.WaitUtils;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Properties;
 
-/**
- * Page Object Model for Login Page using locators.properties
- */
 public class LoginPage {
 
     private WebDriver driver;
-    private Properties locators;
+    private WaitUtils wait;
+    private static Properties locators;
 
-    // Constructor
-    public LoginPage(WebDriver driver) {
-        this.driver = driver;
+    static {
         locators = new Properties();
-        try {
-            FileInputStream fis = new FileInputStream("src/main/resources/locators.properties");
+        try (FileInputStream fis = new FileInputStream("src/main/resources/locators.properties")) {
             locators.load(fis);
         } catch (IOException e) {
             e.printStackTrace();
@@ -31,66 +25,97 @@ public class LoginPage {
         }
     }
 
-    // Element getters
-    private WebElement signupLoginLink() {
-        return driver.findElement(By.xpath(locators.getProperty("login.signupLoginLink")));
+    public LoginPage(WebDriver driver, WaitUtils wait) {
+        this.driver = driver;
+        this.wait = wait;
     }
 
-    private WebElement emailInput() {
-        return driver.findElement(By.xpath(locators.getProperty("login.emailInput")));
-    }
+    // ------------------- By Locators -------------------
+    private By signupLoginLink = By.xpath(locators.getProperty("login.signupLoginLink"));
+    private By emailInput = By.xpath(locators.getProperty("login.emailInput"));
+    private By passwordInput = By.xpath(locators.getProperty("login.passwordInput"));
+    private By loginButton = By.xpath(locators.getProperty("login.loginButton"));
+    private By loginErrorMessage = By.xpath(locators.getProperty("login.loginErrorMessage"));
+    private By logoutButton = By.xpath(locators.getProperty("home.logoutButton"));
 
-    private WebElement passwordInput() {
-        return driver.findElement(By.xpath(locators.getProperty("login.passwordInput")));
-    }
-
-    private WebElement loginButton() {
-        return driver.findElement(By.xpath(locators.getProperty("login.loginButton")));
-    }
-
-    private WebElement loginErrorMessage() {
-        return driver.findElement(By.xpath(locators.getProperty("login.loginErrorMessage")));
-    }
-
-    private WebElement logoutButton() {
-        return driver.findElement(By.xpath(locators.getProperty("login.logoutButton")));
-    }
-
-    // Actions
-    public void login(String email, String password) {
-        clickOnSignupLoginHeader();
-        enterEmailForLogin(email);
-        enterPasswordForLogin(password);
-        clickOnLoginButton();
-    }
-
-    public void clickOnSignupLoginHeader() {
-        signupLoginLink().click();
+    // ------------------- Public Methods -------------------
+    public void clickOnSignupLoginLink() {
+        wait.waitForElementToBeClickable(signupLoginLink).click();
     }
 
     public void enterEmailForLogin(String email) {
-        WebElement element = emailInput();
-        element.clear();
-        element.sendKeys(email);
+        WebElement emailElement = wait.waitForElementToBeVisible(emailInput);
+        emailElement.clear();
+        emailElement.sendKeys(email);
     }
 
     public void enterPasswordForLogin(String password) {
-        WebElement element = passwordInput();
-        element.clear();
-        element.sendKeys(password);
+        WebElement passwordElement = wait.waitForElementToBeVisible(passwordInput);
+        passwordElement.clear();
+        passwordElement.sendKeys(password);
     }
 
     public void clickOnLoginButton() {
-        loginButton().click();
-        WaitUtils wait = new WaitUtils(driver);
-        wait.waitForPageToLoad(20);
+        wait.waitForElementToBeClickable(loginButton).click();
+    }
+    
+    public boolean isLoginButtonVisible() {
+        try {
+            wait.waitForElementToBeVisible(loginButton);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    public boolean isSignupLoginLinkVisible() {
+        return wait.isElementVisible(signupLoginLink, 5);
     }
 
     public String getLoginErrorMessage() {
-        return loginErrorMessage().getText();
+        if (wait.isElementVisible(loginErrorMessage, 3)) {
+            return wait.waitForElementToBeVisible(loginErrorMessage).getText();
+        }
+        return null;
     }
 
-    public void logout() {
-        logoutButton().click();
+    
+    public Object login(String email, String password) {
+        clickOnSignupLoginLink();
+        enterEmailForLogin(email);
+        enterPasswordForLogin(password);
+        clickOnLoginButton();
+        
+        //Check if logout button is visible on the next page
+        if (wait.isElementVisible(logoutButton, 5)) { 
+            return new HomePage(driver, wait);
+        } else {
+            return new LoginPage(driver, wait); // Stay on the login page on failure
+        }
     }
+    
+    public Object loginFromCurrentPage(String email, String password) {
+        enterEmailForLogin(email);
+        enterPasswordForLogin(password);
+        clickOnLoginButton();
+        
+        // Check for a unique element on the Home Page to determine success
+        if (wait.isElementVisible(logoutButton, 5)) {
+            return new HomePage(driver, wait);
+        } else {
+            return new LoginPage(driver, wait);
+        }
+    }
+    
+    // You may also want a simplified logout method
+    public void logout() {
+        if (wait.isElementVisible(logoutButton, 10)) {
+            wait.waitForElementToBeClickable(logoutButton).click();
+        }
+    }
+
+	public boolean isLoginSuccessful() {
+	    return wait.isElementVisible(logoutButton, 10);
+
+	}
 }

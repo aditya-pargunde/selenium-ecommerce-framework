@@ -2,9 +2,11 @@ package ecommerceautomation.pages;
 
 import ecommerceautomation.utils.WaitUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -15,14 +17,11 @@ public class ProductPage {
 
     private WebDriver driver;
     private WaitUtils wait;
-    private Properties locators;
+    private static Properties locators;
 
-    public ProductPage(WebDriver driver) {
-        this.driver = driver;
-        this.wait = new WaitUtils(driver, 10);
+    static {
         locators = new Properties();
-        try {
-            FileInputStream fis = new FileInputStream("src/main/resources/locators.properties");
+        try (FileInputStream fis = new FileInputStream("src/main/resources/locators.properties")) {
             locators.load(fis);
         } catch (IOException e) {
             e.printStackTrace();
@@ -30,48 +29,67 @@ public class ProductPage {
         }
     }
 
-    // Locators getters  login.productsLink
-    
-    private By productHeader = By.xpath(locators.getProperty("login.productsLink"));
+    public ProductPage(WebDriver driver, WaitUtils wait) {
+        this.driver = driver;
+        this.wait = wait;
+    }
+
+    // ------------------- By Locators -------------------
+    private By productHeader = By.xpath(locators.getProperty("product.productsLink"));
     private By searchBox = By.xpath(locators.getProperty("product.searchBox"));
     private By searchButton = By.xpath(locators.getProperty("product.searchButton"));
-    private By addToCartButton = By.xpath(locators.getProperty("product.addToCartButton"));
     private By productListLocator = By.xpath("//div[@class='productinfo text-center']");
     private By modalContent = By.xpath("//div[@class='modal-content']");
     private By viewCartLink = By.xpath("//a//u[text()='View Cart']");
+    private By subscriptionText = By.xpath("//div//h2[text()='Subscription']");
+    private By viewProductButton= By.xpath("//a[text()='View Product']");
 
-    // Methods
-    public void searchProduct(String productName) {
-        // Step 1: Click products link
+    // ------------------- Public Methods -------------------
+    public CartPage searchProduct(String productName) {
         wait.waitForElementToBeClickable(productHeader).click();
-
-        // Step 2: Enter product name
-        wait.waitForElementToBeVisible(searchBox).sendKeys(productName);
-        wait.waitForElementToBeClickable(searchButton).click();
-
-        // Step 3: Get product list
-        List<WebElement> productList = driver.findElements(productListLocator);
-        for (WebElement product : productList) {
-            WebElement searchedProductName = product.findElement(By.tagName("p"));
-            System.out.println("Product: " + searchedProductName.getText());
-
-            if (searchedProductName.getText().equalsIgnoreCase(productName)) {
-                // Hover on product
-                Actions actions = new Actions(driver);
-                actions.moveToElement(searchedProductName).perform();
-
-                // click on Add to cart
-                wait.waitForElementToBeClickable(addToCartButton).click();
-
-                // Wait for modal & click "View Cart"
-                wait.waitForElementToBeVisible(modalContent);
-                wait.waitForElementToBeClickable(viewCartLink).click();
-                break; // Stop loop once matched product is handled
-            }
+        performSearch(productName);
+        WebElement productElement = findProductInList(productName);
+        if (productElement != null) {
+            addProductToCart(productElement);
+        } else {
+            throw new RuntimeException("Product '" + productName + "' not found on the page.");
         }
+        return handleAddToCartModal();
     }
 
-//    public void addFirstProductToCart() {
-//        wait.waitForElementToBeClickable(addToCartButton()).click();
-//    }
+    // ------------------- Private Helper Methods -------------------
+    private void performSearch(String productName) {
+        wait.waitForElementToBeVisible(searchBox).sendKeys(productName);
+        wait.waitForElementToBeClickable(searchButton).click();
+    }
+
+    private WebElement findProductInList(String productName) {
+        List<WebElement> products = wait.waitForAllElementsToBeVisible(productListLocator);
+        for (WebElement product : products) {
+            WebElement searchedProductName = product.findElement(By.tagName("p"));
+            if (searchedProductName.getText().equalsIgnoreCase(productName)) {
+                return product;
+            }
+        }
+        return null;
+    }
+
+    private void addProductToCart(WebElement productElement) {
+        // Hover over the product container
+        Actions actions = new Actions(driver);
+        actions.moveToElement(productElement).perform();
+        
+        // Now, wait and find the 'Add to cart' button after hovering
+        productElement.findElement(viewProductButton);
+        //scroll to view product button due to advertisement on page 
+        wait.scrollIntoView(viewProductButton);
+        WebElement addToCartButton = productElement.findElement(By.xpath(".//a[contains(text(),'Add to cart')]"));     
+        addToCartButton.click();
+    }
+
+    private CartPage handleAddToCartModal() {
+        wait.waitForElementToBeVisible(modalContent);
+        wait.waitForElementToBeClickable(viewCartLink).click();
+        return new CartPage(driver, wait);
+    }
 }

@@ -56,4 +56,8 @@ public final class ConfigReader {
         if (v == null) return defaultValue;
         return Boolean.parseBoolean(v);
     }
+    
+    public static Properties getProperties() {
+        return props;
+    }
 }
