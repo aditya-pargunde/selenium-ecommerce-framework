@@ -10,44 +10,44 @@ import java.util.Properties;
 
 public class HomePage {
 
-    private WebDriver driver;
-    private WaitUtils wait;
-    private static Properties locators;
+	private WebDriver driver;
+	private WaitUtils wait;
+	private static Properties locators;
 
-    static {
-        locators = new Properties();
-        try (FileInputStream fis = new FileInputStream("src/main/resources/locators.properties")) {
-            locators.load(fis);
-        } catch (IOException e) {
-            e.printStackTrace();
-            throw new RuntimeException("Failed to load locators.properties file.");
-        }
-    }
+	static {
+		locators = new Properties();
+		try (FileInputStream fis = new FileInputStream("src/main/resources/locators.properties")) {
+			locators.load(fis);
+		} catch (IOException e) {
+			e.printStackTrace();
+			throw new RuntimeException("Failed to load locators.properties file.");
+		}
+	}
 
-    public HomePage(WebDriver driver, WaitUtils wait) {
-        this.driver = driver;
-        this.wait = wait;
-    }
+	public HomePage(WebDriver driver, WaitUtils wait) {
+		this.driver = driver;
+		this.wait = wait;
+	}
 
-    // ------------------- Locators -------------------
-    private By logoutButton = By.xpath(locators.getProperty("home.logoutButton"));
-    private By productsLink = By.xpath(locators.getProperty("home.productsLink"));
+	// ------------------- Locators -------------------
+	private By logoutButton = By.xpath(locators.getProperty("home.logoutButton"));
+	private By productsLink = By.xpath(locators.getProperty("home.productsLink"));
 
-    // ------------------- Methods -------------------
-    public boolean isUserLoggedIn() {
-        return wait.isElementVisible(logoutButton, 10);
-    }
+	// ------------------- Methods -------------------
+	public boolean isUserLoggedIn() {
+		return wait.isElementVisible(logoutButton, 10);
+	}
 
-    public LoginPage logout() {
-        if (isUserLoggedIn()) {
-            wait.waitForElementToBeClickable(logoutButton).click();
-            return new LoginPage(driver, wait);
-        }
-        return null; // Or throw an exception
-    }
+	public LoginPage logout() {
+		if (isUserLoggedIn()) {
+			wait.waitForElementToBeClickable(logoutButton).click();
+			return new LoginPage(driver, wait);
+		}
+		return null;
+	}
 
-    public ProductPage navigateToProductsPage() {
-        wait.waitForElementToBeClickable(productsLink).click();
-        return new ProductPage(driver, wait);
-    }
+	public ProductPage navigateToProductsPage() {
+		wait.waitForElementToBeClickable(productsLink).click();
+		return new ProductPage(driver, wait);
+	}
 }

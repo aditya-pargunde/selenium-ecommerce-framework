@@ -11,8 +11,9 @@ public class CartTest extends BaseTest {
 
 	@Test
 	public void verifyCartOperations() {
-		//this is to remove a product from cart
-		// Step 1: Navigate to the Home Page (handled by BaseTest @BeforeMethod)
+		// this is to remove a product from cart
+
+		// Step 1: Navigate to the Home Page
 		HomePage homePage = new HomePage(getDriver(), wait);
 
 		// Step 2: Navigate to Products Page and add a product to the cart
@@ -23,10 +24,6 @@ public class CartTest extends BaseTest {
 		// Step 3: Verify product is in cart and its quantity
 		Assert.assertTrue(cartPage.isProductInCart(productName),
 				"Expected product to be present in the cart: " + productName);
-
-		// This assertion might be redundant if the test flow only adds one product.
-		// int quantity = cartPage.getProductQuantity();
-		// Assert.assertEquals(quantity, 1, "Expected cart quantity to be 1.");
 
 		// Step 4: Remove the product
 		cartPage.removeProduct(productName);

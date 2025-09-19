@@ -53,7 +53,6 @@ public class CheckoutPage {
 	private By billingCityStateZip = By.xpath(locators.getProperty("order.billingCityStateZip"));
 	private By billingCountry = By.xpath(locators.getProperty("order.billingCountry"));
 	private By billingPhone = By.xpath(locators.getProperty("order.billingPhone"));
-//	private By placeOrderButton = By.xpath(locators.getProperty("order.placeOrderButton"));
 
 	// ------------------- Public Methods -------------------
 	public List<String> getDeliveryAddressDetails() {
@@ -79,18 +78,18 @@ public class CheckoutPage {
 	}
 
 	public PaymentPage placeOrder() {
-		 WebDriverWait waitDriver = new WebDriverWait(driver, Duration.ofSeconds(10));
-		    WebElement placeOrderButton = waitDriver.until(
-		        ExpectedConditions.presenceOfElementLocated(By.xpath("//a[@href='/payment']")));
+		WebDriverWait waitDriver = new WebDriverWait(driver, Duration.ofSeconds(10));
+		WebElement placeOrderButton = waitDriver
+				.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//a[@href='/payment']")));
 
-		    // Scroll into view
-		    JavascriptExecutor js = (JavascriptExecutor) driver;
-		    js.executeScript("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});", placeOrderButton);
+		// Scroll to the place order button as it is not visible.
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});", placeOrderButton);
 
-		    // Wait until clickable and click
-		    waitDriver.until(ExpectedConditions.elementToBeClickable(placeOrderButton));
-		    placeOrderButton.click();
+		// Wait until the placeorder button clickable and then click
+		waitDriver.until(ExpectedConditions.elementToBeClickable(placeOrderButton));
+		placeOrderButton.click();
 
-		    return new PaymentPage(driver, wait);
+		return new PaymentPage(driver, wait);
 	}
 }

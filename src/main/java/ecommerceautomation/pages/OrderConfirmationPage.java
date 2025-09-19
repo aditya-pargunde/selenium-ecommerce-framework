@@ -44,10 +44,10 @@ public class OrderConfirmationPage {
 	public void downloadInvoice() {
 		wait.waitForElementToBeClickable(downloadInvoiceButton).click();
 	}
-	
+
+	// Click on continue to redirect to the home page
 	public HomePage clickOnContinueButton() {
 		wait.waitForElementToBeClickable(continueButton).click();
-		// Assuming clicking continue redirects to the home page
 		return new HomePage(driver, wait);
 	}
 }

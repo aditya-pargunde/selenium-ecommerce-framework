@@ -27,23 +27,22 @@ public class SignupPageTest extends BaseTest {
 		LoginPage loginPage = new LoginPage(getDriver(), wait);
 		AccountInformationPage accountInfoPage = new AccountInformationPage(getDriver(), wait);
 		HomePage homePage = new HomePage(getDriver(), wait);
-		
-		//click on signup header enter signup details
+
+		// click on signup header enter signup details
 		signupPage.clickOnSignupLoginLink();
-		signupPage.enterNameAtSignUp(name); 
+		signupPage.enterNameAtSignUp(name);
 		signupPage.enterEmailAtSignUp(email);
 		signupPage.clickOnSignupButton();
 
-		//check if existing user
+		// check if existing user
 		boolean emailRegistered = signupPage.isEmailAlreadyRegistered();
-		// This check is to ensure test data is clean.
 		if (emailRegistered) {
 			System.out.println("email already resgistered");
 			Assert.assertTrue(emailRegistered, "Test failed: Email is already registered.");
 			loginPage.enterEmailForLogin(email);
 			loginPage.enterPasswordForLogin(password);
 			loginPage.clickOnLoginButton();
-			 homePage.logout();
+			homePage.logout();
 		} else {
 			accountInfoPage.enterAccountInformation(title, password, day, month, year);
 			accountInfoPage.enterAddressInformation(firstname, lastname, company, address, country, state, city, zip,

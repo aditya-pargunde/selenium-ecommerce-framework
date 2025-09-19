@@ -43,7 +43,7 @@ public class CartPage {
 	private By checkoutButton = By.xpath(locators.getProperty("cart.checkoutButton"));
 	private By checkoutModal = By.xpath(locators.getProperty("cart.checkoutModal"));
 	private By registerLoginButtonAtModal = By.xpath(locators.getProperty("cart.RegisterLoginButtonAtModal"));
-	//private By modalContent = By.xpath("//div[@class='modal-content']");
+	// private By modalContent = By.xpath("//div[@class='modal-content']");
 	private By cartPageLink = By.xpath("//a[@href='/view_cart']");
 
 	// ------------------- Public Methods -------------------
@@ -72,8 +72,6 @@ public class CartPage {
 
 		if (productIndex != -1) {
 			// Construct the locator for the specific delete button using the index
-			// This is a much more robust approach than trying to get the WebElement
-			// directly
 			String deleteButtonXpath = locators.getProperty("cart.deleteButtons") + "[" + (productIndex + 1) + "]";
 			By deleteButtonLocator = By.xpath(deleteButtonXpath);
 
@@ -87,7 +85,7 @@ public class CartPage {
 	public CheckoutPage proceedToCheckout() {
 		wait.waitForElementToBeClickable(checkoutButton).click();
 
-		// Handle modal if it appears (user not logged in)
+		// Handle modal if it appears incase user is not logged in
 		if (wait.isElementVisible(checkoutModal, 3)) {
 			wait.waitForElementToBeClickable(registerLoginButtonAtModal).click();
 		}

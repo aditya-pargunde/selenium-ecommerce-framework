@@ -39,15 +39,15 @@ public class PaymentPage {
 	private By PayAndConfirmOrderButton = By.xpath(locators.getProperty("payment.PayAndConfirmOrderButton"));
 
 	// ------------------- Actions -------------------
-	public void enterCardDetails(String name, String cardNumber, String CVCNumber,
-			String expiryMonth, String expiryYear) {
+	public void enterCardDetails(String name, String cardNumber, String CVCNumber, String expiryMonth,
+			String expiryYear) {
 		wait.waitForElementToBeVisible(nameOnCard).sendKeys(name);
 		wait.waitForElementToBeVisible(this.cardNumber).sendKeys(cardNumber);
 		wait.waitForElementToBeVisible(cardCVNumber).sendKeys(CVCNumber);
 		wait.waitForElementToBeVisible(cardExpiryMonth).sendKeys(expiryMonth);
 		wait.waitForElementToBeVisible(cardExpiryYear).sendKeys(expiryYear);
 	}
-	
+
 	public OrderConfirmationPage confirmOrder() {
 		wait.waitForElementToBeClickable(PayAndConfirmOrderButton).click();
 		return new OrderConfirmationPage(driver, wait);

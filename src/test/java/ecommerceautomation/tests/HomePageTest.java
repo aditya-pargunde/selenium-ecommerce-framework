@@ -17,13 +17,12 @@ public class HomePageTest extends BaseTest {
 		return excel.getAllRowsAsObjectArray();
 	}
 
-	//This is working fine
+	// This is working fine
 	@Test(dataProvider = "ValidLoginData")
 	public void verifyUserIsLoggedIn(String name, String email, String password) {
 		// login to app first
 		LoginPage loginPage = new LoginPage(getDriver(), wait);
 		loginPage.login(email, password);
-		// HomePage homePage = loginPage.login("test@example.com", "password123");
 
 		// Step 2: Instantiate the HomePage object
 		HomePage homePage = new HomePage(getDriver(), wait);
@@ -33,34 +32,33 @@ public class HomePageTest extends BaseTest {
 				"User should be logged in and the 'logout button should be visible.");
 	}
 
-//    //this is working.
-    @Test
-    public void navigateToProductsPage() {
-        // Step 1: Start on the home page
-        HomePage homePage = new HomePage(getDriver(), wait);
+	@Test
+	public void navigateToProductsPage() {
+		// Step 1: Start on the home page
+		HomePage homePage = new HomePage(getDriver(), wait);
 
-        // Step 2: Navigate to the products page using the HomePage method
-        ProductPage productPage = homePage.navigateToProductsPage();
+		// Step 2: Navigate to the products page using the HomePage method
+		ProductPage productPage = homePage.navigateToProductsPage();
 
-        // Step 3: Assert that the URL has changed to the products page URL
-        Assert.assertTrue(getDriver().getCurrentUrl().contains("products"), "URL should contain 'products' after navigating to the products page.");
-        
-        // Optional Step 4: Verify a unique element on the ProductPage to confirm navigation
-        // Assert.assertTrue(productPage.isProductsHeaderVisible(), "Products header should be visible.");
-    }
+		// Step 3: Assert that the URL has changed to the products page URL
+		Assert.assertTrue(getDriver().getCurrentUrl().contains("products"),
+				"URL should contain 'products' after navigating to the products page.");
+	}
 
-    @Test(dataProvider="ValidLoginData")
-    public void verifyLogoutFunctionality(String name, String email, String password) {
-        //Step 1: Login with valid user
-    	LoginPage loginPage = new LoginPage(getDriver(), wait);
+	@Test(dataProvider = "ValidLoginData")
+	public void verifyLogoutFunctionality(String name, String email, String password) {
+		// Step 1: Login with valid user
+		LoginPage loginPage = new LoginPage(getDriver(), wait);
 		loginPage.login(email, password);
-        
-        HomePage homePage = new HomePage(getDriver(), wait);
-        
-        // Step 2: Perform the logout action
-        loginPage = homePage.logout();
 
-        // Step 3: Assert that the user has been logged out by checking for a login-related element
-        Assert.assertTrue(loginPage.isLoginButtonVisible(), "After logout, the signup / login button should be visible.");
-    }
+		HomePage homePage = new HomePage(getDriver(), wait);
+
+		// Step 2: Perform the logout action
+		loginPage = homePage.logout();
+
+		// Step 3: Assert that the user has been logged out by checking for a
+		// login-related element
+		Assert.assertTrue(loginPage.isLoginButtonVisible(),
+				"After logout, the signup / login button should be visible.");
+	}
 }
