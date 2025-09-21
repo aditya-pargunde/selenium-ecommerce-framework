@@ -74,7 +74,7 @@ public class OrderConfirmationTest extends BaseTest {
 
 		// Step 8: Verify the order confirmation message
 		String actualMessage = orderConfirmationPage.getOrderConfirmationMessage();
-		Assert.assertEquals(actualMessage, "ORDER PLACED!", "Order confirmation message is incorrect.");
+		Assert.assertEquals(actualMessage, "Order placed!", "Order confirmation message is incorrect.");
 
 		// Step 9: Download the invoice and continue
 		orderConfirmationPage.downloadInvoice();

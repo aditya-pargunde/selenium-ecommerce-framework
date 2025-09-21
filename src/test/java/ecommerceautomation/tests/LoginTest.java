@@ -70,4 +70,5 @@ public class LoginTest extends BaseTest {
             Assert.fail("Login succeeded for invalid user: " + email);
         }
     }
+  
 }
