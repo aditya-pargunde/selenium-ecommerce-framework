@@ -11,7 +11,7 @@ public class EcommerceShoppingTest extends BaseTest {
 
     @DataProvider(name = "loginData")
     public Object[][] getLoginData() throws Exception {
-        ExcelUtils excel = new ExcelUtils(config.getProperty("user.data.path"), "LoginUsers");
+        ExcelUtils excel = new ExcelUtils(config.getProperty("user.data.path"), "ValidLoginUsers");
         return excel.getAllRowsAsObjectArray();
     }
 

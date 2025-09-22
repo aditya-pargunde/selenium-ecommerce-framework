@@ -92,7 +92,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">2 methods,   2 passed</span>
+                    <span class="method-stats">1 method,   1 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -103,12 +103,7 @@
                     <div class="method-list-content passed suite-Default_suite">
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="ecommerceautomation.tests.LoginTest" class="method navigator-link" hash-for-method="invalidUserLoginTest(invaliduser@example.com, WrongPass)">invalidUserLoginTest(invaliduser@example.com, WrongPass)</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="ecommerceautomation.tests.LoginTest" class="method navigator-link" hash-for-method="validUserLoginTest(aditya@p.com, AdityaPass123)">validUserLoginTest(aditya@p.com, AdityaPass123)</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="ecommerceautomation.tests.PaymentTest" class="method navigator-link" hash-for-method="completePaymentFlow(John Doe, aditya@p.com, AdityaPass123, John Doe, 1234 4567 6789, 123.0, 3.0, 2025.0)">completePaymentFlow(John Doe, aditya@p.com, AdityaPass123, John Doe, 1234 4567 6789, 123.0, 3.0, 2025.0)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Default_suite -->
@@ -126,23 +121,15 @@
           <div class="suite-Default_suite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
-              <span class="class-name">ecommerceautomation.tests.LoginTest</span>
+              <span class="class-name">ecommerceautomation.tests.PaymentTest</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="invalidUserLoginTest(invaliduser@example.com, WrongPass)">
-                  </a> <!-- invalidUserLoginTest(invaliduser@example.com, WrongPass) -->
-                  <span class="method-name">invalidUserLoginTest</span>
-                  <span class="parameters">(invaliduser@example.com,WrongPass)</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="validUserLoginTest(aditya@p.com, AdityaPass123)">
-                  </a> <!-- validUserLoginTest(aditya@p.com, AdityaPass123) -->
-                  <span class="method-name">validUserLoginTest</span>
-                  <span class="parameters">(aditya@p.com,AdityaPass123)</span>
+                  <a name="completePaymentFlow(John Doe, aditya@p.com, AdityaPass123, John Doe, 1234 4567 6789, 123.0, 3.0, 2025.0)">
+                  </a> <!-- completePaymentFlow(John Doe, aditya@p.com, AdityaPass123, John Doe, 1234 4567 6789, 123.0, 3.0, 2025.0) -->
+                  <span class="method-name">completePaymentFlow</span>
+                  <span class="parameters">(John Doe,aditya@p.com,AdityaPass123,John Doe,1234 4567 6789,123.0,3.0,2025.0)</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -150,7 +137,7 @@
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">/private/var/folders/fh/mrx4vbm562g1986vvgt2b16w0000gn/T/testng-eclipse--1734052906/testng-customsuite.xml</span>
+            <span class="header-content">/private/var/folders/fh/mrx4vbm562g1986vvgt2b16w0000gn/T/testng-eclipse--1931805601/testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -159,7 +146,7 @@
 &lt;suite name=&quot;Default suite&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
   &lt;test thread-count=&quot;5&quot; name=&quot;Default test&quot; verbose=&quot;2&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;ecommerceautomation.tests.LoginTest&quot;/&gt;
+      &lt;class name=&quot;ecommerceautomation.tests.PaymentTest&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Default test --&gt;
 &lt;/suite&gt; &lt;!-- Default suite --&gt;
@@ -199,20 +186,16 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(2);
+data.addRows(1);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'validUserLoginTest')
-data.setCell(0, 2, 'ecommerceautomation.tests.LoginTest')
-data.setCell(0, 3, 22013);
-data.setCell(1, 0, 1)
-data.setCell(1, 1, 'invalidUserLoginTest')
-data.setCell(1, 2, 'ecommerceautomation.tests.LoginTest')
-data.setCell(1, 3, 7971);
+data.setCell(0, 1, 'completePaymentFlow')
+data.setCell(0, 2, 'ecommerceautomation.tests.PaymentTest')
+data.setCell(0, 3, 32767);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 29 seconds</span>
+              <span class="suite-total-time">Total running time: 32 seconds</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -238,34 +221,22 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">ecommerceautomation.tests.LoginTest</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">ecommerceautomation.tests.PaymentTest</div> <!-- chronological-class-name -->
               <div class="configuration-suite before">
                 <span class="method-name">setupConfig</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-suite before -->
               <div class="configuration-method before">
                 <span class="method-name">setUp</span>
-                <span class="method-start">582 ms</span>
+                <span class="method-start">980 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">invalidUserLoginTest(invaliduser@example.com, WrongPass)</span>
-                <span class="method-start">7256 ms</span>
+                <span class="method-name">completePaymentFlow(John Doe, aditya@p.com, AdityaPass123, John Doe, 1234 4567 6789, 123.0, 3.0, 2025.0)</span>
+                <span class="method-start">9150 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">15229 ms</span>
-              </div> <!-- configuration-method after -->
-              <div class="configuration-method before">
-                <span class="method-name">setUp</span>
-                <span class="method-start">15473 ms</span>
-              </div> <!-- configuration-method before -->
-              <div class="test-method">
-                <span class="method-name">validUserLoginTest(aditya@p.com, AdityaPass123)</span>
-                <span class="method-start">38282 ms</span>
-              </div> <!-- test-method -->
-              <div class="configuration-method after">
-                <span class="method-name">tearDown</span>
-                <span class="method-start">60296 ms</span>
+                <span class="method-start">41920 ms</span>
               </div> <!-- configuration-method after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

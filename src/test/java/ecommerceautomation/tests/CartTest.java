@@ -31,6 +31,10 @@ public class CartTest extends BaseTest {
 		// Step 5: Verify product was removed
 		Assert.assertTrue(cartPage.isProductInCart(productName),
 				"Product should no longer be in the cart after removal: " + productName);
+		
+		//Step 6: Check if product is actually removed from cart
+		homePage.navigateToProductsPage();
+		cartPage.cartPageLink();
 	}
 
 	@Test

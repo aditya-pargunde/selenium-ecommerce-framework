@@ -1,12 +1,10 @@
 package ecommerceautomation.tests;
-
 import ecommerceautomation.base.BaseTest;
 import ecommerceautomation.pages.*;
 import ecommerceautomation.utils.ExcelUtils;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-
 import java.util.Arrays;
 import java.util.List;
 
@@ -74,7 +72,7 @@ public class OrderConfirmationTest extends BaseTest {
 
 		// Step 8: Verify the order confirmation message
 		String actualMessage = orderConfirmationPage.getOrderConfirmationMessage();
-		Assert.assertEquals(actualMessage, "Order placed!", "Order confirmation message is incorrect.");
+		Assert.assertEquals(actualMessage, "Order placed!", "Order confirmation message is correct.");
 
 		// Step 9: Download the invoice and continue
 		orderConfirmationPage.downloadInvoice();

@@ -37,7 +37,8 @@ public class LoginPage {
 	private By loginButton = By.xpath(locators.getProperty("login.loginButton"));
 	private By loginErrorMessage = By.xpath(locators.getProperty("login.loginErrorMessage"));
 	private By logoutButton = By.xpath(locators.getProperty("home.logoutButton"));
-
+	
+	
 	// ------------------- Public Methods -------------------
 	public void clickOnSignupLoginLink() {
 		wait.waitForElementToBeClickable(signupLoginLink).click();
@@ -91,6 +92,7 @@ public class LoginPage {
 		} else {
 			return new LoginPage(driver, wait); // Stay on the login page on failure
 		}
+		
 	}
 
 	public Object loginFromCurrentPage(String email, String password) {
@@ -114,6 +116,5 @@ public class LoginPage {
 
 	public boolean isLoginSuccessful() {
 		return wait.isElementVisible(logoutButton, 10);
-
 	}
 }

@@ -39,6 +39,7 @@ public class AccountInformationPageTest extends BaseTest {
 
 		// Step 4: Click create account and navigate to the home page
 		HomePage homePage = accountInfoPage.clickOnCreateAccountButton();
+		accountInfoPage.accountCreationConfirmation();
 
 		// Step 5: Assert that account creation was successful
 		Assert.assertTrue(homePage.isUserLoggedIn(), "Account creation failed or user not logged in.");

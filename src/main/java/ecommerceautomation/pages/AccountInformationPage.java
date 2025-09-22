@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -73,6 +74,17 @@ public class AccountInformationPage {
 
 	public HomePage clickOnCreateAccountButton() {
 		wait.waitForElementToBeClickable(createAccountButton).click();
+		return new HomePage(driver, wait);
+	}
+	
+	public HomePage accountCreationConfirmation() {
+		WebElement continueButton = driver.findElement(By.xpath("//a[@data-qa='continue-button']"));
+		return new HomePage(driver, wait);	
+	}
+	
+	public HomePage clickOnContinueButton() {
+		WebElement continueButton = driver.findElement(By.xpath("//a[@data-qa='continue-button']"));
+		continueButton.click();
 		return new HomePage(driver, wait);
 	}
 
