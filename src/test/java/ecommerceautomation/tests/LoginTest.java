@@ -1,6 +1,7 @@
 package ecommerceautomation.tests;
 
 import ecommerceautomation.base.BaseTest;
+import ecommerceautomation.pages.AccountInformationPage;
 import ecommerceautomation.pages.HomePage;
 import ecommerceautomation.pages.LoginPage;
 import ecommerceautomation.utils.ExcelUtils;
@@ -70,5 +71,5 @@ public class LoginTest extends BaseTest {
             Assert.fail("Login succeeded for invalid user: " + email);
         }
     }
-  
+
 }

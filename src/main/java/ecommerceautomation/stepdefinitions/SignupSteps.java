@@ -36,8 +36,8 @@ public class SignupSteps {
         this.loginPage = new LoginPage(BaseTest.getDriver(), wait);
     }
 
-    @Given("User is on the Login Or Signup Page")
-    public void user_is_on_the_login_or_signup_page() {
+    @Given("User is on the signup Page")
+    public void user_is_on_the_signup_page() {
         loginPage.clickOnSignupLoginLink();
     }
 

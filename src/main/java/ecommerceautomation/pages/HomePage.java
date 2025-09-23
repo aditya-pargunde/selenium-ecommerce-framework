@@ -1,6 +1,8 @@
 package ecommerceautomation.pages;
 
 import ecommerceautomation.utils.WaitUtils;
+import junit.framework.Assert;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -13,6 +15,7 @@ public class HomePage {
 	private WebDriver driver;
 	private WaitUtils wait;
 	private static Properties locators;
+	HomePage homePage;
 
 	static {
 		locators = new Properties();
@@ -32,6 +35,9 @@ public class HomePage {
 	// ------------------- Locators -------------------
 	private By logoutButton = By.xpath(locators.getProperty("home.logoutButton"));
 	private By productsLink = By.xpath(locators.getProperty("home.productsLink"));
+	private By deleteAccountLink = By.xpath(locators.getProperty("home.deleteAccountLink"));
+	private By AccountDeletionSuccessMessage= By.xpath(locators.getProperty("home.AccountDeletionSuccessMessage"));
+	private By continueAfterDeletionBtn = By.xpath(locators.getProperty("account.continueButton"));
 
 	// ------------------- Methods -------------------
 	public boolean isUserLoggedIn() {
@@ -49,5 +55,23 @@ public class HomePage {
 	public ProductPage navigateToProductsPage() {
 		wait.waitForElementToBeClickable(productsLink).click();
 		return new ProductPage(driver, wait);
+	}
+	
+	public HomePage deleteAccount() {
+		wait.waitForAllElementsToBeVisible(deleteAccountLink);
+		wait.waitForElementToBeClickable(deleteAccountLink).click();
+		return new HomePage(driver,wait);
+	}
+	
+	public void clickOnContinueAfterDeletion() {
+        wait.waitForElementToBeVisible(continueAfterDeletionBtn);
+        wait.waitForElementToBeClickable(continueAfterDeletionBtn);
+    }
+	
+	public HomePage verifyAccountDeletedMessage() {
+		WebElement DeletionSuccessMessage = driver.findElement(By.xpath(locators.getProperty("home.AccountDeletionSuccessMessage")));
+		Assert.assertEquals(DeletionSuccessMessage.getText(), "ACCOUNT DELETED!");
+		System.out.print(DeletionSuccessMessage.getText());
+		return new HomePage(driver,wait);
 	}
 }

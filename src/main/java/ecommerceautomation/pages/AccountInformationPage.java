@@ -38,7 +38,7 @@ public class AccountInformationPage {
 	private By dayOfBirth = By.xpath(locators.getProperty("account.dayOfBirth"));
 	private By monthOfBirth = By.xpath(locators.getProperty("account.monthOfBirth"));
 	private By yearOfBirth = By.xpath(locators.getProperty("account.yearOfBirth"));
-	private By titleRadioButtons = By.xpath("//input[@name='title']");
+	private By titleRadioButtons = By.xpath(locators.getProperty("account.titleRadioButtons"));
 	private By firstName = By.xpath(locators.getProperty("account.firstName"));
 	private By lastName = By.xpath(locators.getProperty("account.lastName"));
 	private By companyName = By.xpath(locators.getProperty("account.companyName"));
@@ -49,9 +49,12 @@ public class AccountInformationPage {
 	private By zipcode = By.xpath(locators.getProperty("account.zipcode"));
 	private By mobileNumber = By.xpath(locators.getProperty("account.mobileNumber"));
 	private By createAccountButton = By.xpath(locators.getProperty("account.createAccountButton"));
+	//private By continueButton = By.xpath(locators.getProperty("account.continueButton"));
+	//private By accountCreationSuccessMessage = By.xpath(locators.getProperty("account.accountCreationSuccessMessage"));
 
 	// ------------------- Public Methods -------------------
 	public void enterAccountInformation(String title, String password, String day, String month, String year) {
+		wait.waitForElementToBeVisible(titleRadioButtons);
 		selectTitle(title);
 		wait.waitForElementToBeVisible(passwordInput).sendKeys(password);
 		new Select(wait.waitForElementToBeVisible(dayOfBirth)).selectByValue(day);
@@ -76,14 +79,16 @@ public class AccountInformationPage {
 		wait.waitForElementToBeClickable(createAccountButton).click();
 		return new HomePage(driver, wait);
 	}
-	
+
 	public HomePage accountCreationConfirmation() {
-		WebElement continueButton = driver.findElement(By.xpath("//a[@data-qa='continue-button']"));
-		return new HomePage(driver, wait);	
+		WebElement creationSuccessMessage = driver.findElement(By.xpath(locators.getProperty("account.accountCreationSuccessMessage")));
+		Assert.assertEquals(creationSuccessMessage.getText(), "Congratulations! Your new account has been successfully created!");
+		System.out.print(creationSuccessMessage.getText());
+		return new HomePage(driver, wait);
 	}
-	
+
 	public HomePage clickOnContinueButton() {
-		WebElement continueButton = driver.findElement(By.xpath("//a[@data-qa='continue-button']"));
+		WebElement continueButton = driver.findElement(By.xpath(locators.getProperty("account.continueButton")));
 		continueButton.click();
 		return new HomePage(driver, wait);
 	}

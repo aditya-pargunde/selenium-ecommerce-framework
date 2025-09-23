@@ -48,8 +48,25 @@ public class SignupPageTest extends BaseTest {
 			accountInfoPage.enterAddressInformation(firstname, lastname, company, address, country, state, city, zip,
 					mobileNo);
 			homePage = accountInfoPage.clickOnCreateAccountButton();
-
+			accountInfoPage.accountCreationConfirmation();
+			accountInfoPage.clickOnContinueButton();
 			homePage.logout();
 		}
+	}
+	
+	@Test(dataProvider = "registerUserData")
+	public void accountDeletionCheck(String name, String email, String password, String title, String day, String month,
+			String year, String firstname, String lastname, String company, String address, String country,
+			String state, String city, String zip, String mobileNo) {
+		LoginPage loginPage = new LoginPage(getDriver(), wait);
+		HomePage homePage = new HomePage(getDriver(), wait);
+		SignupPage signupPage = new SignupPage(getDriver(), wait);
+		signupPage.clickOnSignupLoginLink();
+		loginPage.enterEmailForLogin(email);
+		loginPage.enterPasswordForLogin(password);
+		loginPage.clickOnLoginButton();
+		homePage.deleteAccount();
+		homePage.verifyAccountDeletedMessage();
+		homePage.clickOnContinueAfterDeletion();	
 	}
 }
