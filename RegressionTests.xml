@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="EcommerceSuite" parallel="false">
+    <!-- Run only Sanity -->
+    <test name="Regression Tests">
+        <groups>
+            <run>
+                <include name="regression"/>
+            </run>
+        </groups>
+        <packages>
+            <package name="ecommerceautomation.tests"/>
+        </packages>
+    </test>
+</suite>

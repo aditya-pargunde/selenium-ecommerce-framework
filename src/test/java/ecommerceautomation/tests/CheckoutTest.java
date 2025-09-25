@@ -1,5 +1,7 @@
 package ecommerceautomation.tests;
 
+import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
 import ecommerceautomation.base.BaseTest;
 import ecommerceautomation.pages.HomePage;
 import ecommerceautomation.pages.LoginPage;
@@ -30,7 +32,7 @@ public class CheckoutTest extends BaseTest {
 		return data;
 	}
 
-	@Test(dataProvider = "checkoutData")
+	@Test(dataProvider = "checkoutData", groups= {"regression"})
 	public void placeOrderTest(String name, String email, String password, String title, String day, String month,
 			String year, String firstName, String lastName, String company, String address, String country,
 			String state, String city, String zipcode, String mobilenumber) {

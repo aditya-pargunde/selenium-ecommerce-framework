@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Ecommerce Suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Sanity Tests(failed)">
+    <groups>
+      <run>
+        <include name="sanity"/>
+      </run>
+    </groups>
+    <classes>
+      <class name="ecommerceautomation.tests.AccountInformationPageTest">
+        <methods>
+          <include name="registerNewUserTest" invocation-numbers="0"/>
+          <include name="setupConfig"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- ecommerceautomation.tests.AccountInformationPageTest -->
+    </classes>
+  </test> <!-- Sanity Tests(failed) -->
+</suite> <!-- Failed suite [Ecommerce Suite] -->

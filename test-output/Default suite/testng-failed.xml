@@ -3,14 +3,14 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="Cucumber.CucumberTestRunner">
+      <class name="ecommerceautomation.tests.CategoryBrandTest">
         <methods>
-          <include name="setUpClass"/>
-          <include name="tearDownClass"/>
-          <include name="tearDownSuite"/>
-          <include name="runScenario" invocation-numbers="3"/>
+          <include name="checkCategoryAndBrand"/>
+          <include name="setupConfig"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
         </methods>
-      </class> <!-- Cucumber.CucumberTestRunner -->
+      </class> <!-- ecommerceautomation.tests.CategoryBrandTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

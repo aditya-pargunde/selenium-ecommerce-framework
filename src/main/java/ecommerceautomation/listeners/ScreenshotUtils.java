@@ -24,7 +24,6 @@ public class ScreenshotUtils {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
         return path;
     }
 }

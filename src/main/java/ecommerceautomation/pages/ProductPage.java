@@ -139,8 +139,6 @@ public class ProductPage {
 		String categoryName = driver.findElement(By.xpath(locators.getProperty("product.womenCategory"))).getText();
 		String SubCategoryName = driver.findElement(By.xpath(locators.getProperty("women.womenDress"))).getText();
 		wait.waitForElementToBeClickable(womenDress).click();
-		System.out.println("Category Name = " + categoryName);
-		System.out.println("SubCategory Name = " + SubCategoryName);
 		categoryHeader(categoryName, SubCategoryName);
 	}
 
@@ -150,8 +148,6 @@ public class ProductPage {
 		String categoryName = driver.findElement(By.xpath(locators.getProperty("product.womenCategory"))).getText();
 		String SubCategoryName = driver.findElement(By.xpath(locators.getProperty("women.womenTops"))).getText();
 		wait.waitForElementToBeClickable(womenTops).click();
-		System.out.println("Category Name = " + categoryName);
-		System.out.println("SubCategory Name = " + SubCategoryName);
 		categoryHeader(categoryName, SubCategoryName);
 	}
 
@@ -161,8 +157,6 @@ public class ProductPage {
 		String categoryName = driver.findElement(By.xpath(locators.getProperty("product.womenCategory"))).getText();
 		String SubCategoryName = driver.findElement(By.xpath(locators.getProperty("women.womenSaree"))).getText();
 		wait.waitForElementToBeClickable(womenSaree).click();
-		System.out.println("Category Name = " + categoryName);
-		System.out.println("SubCategory Name = " + SubCategoryName);
 		categoryHeader(categoryName, SubCategoryName);
 	}
 
@@ -177,8 +171,6 @@ public class ProductPage {
 		String categoryName = driver.findElement(By.xpath(locators.getProperty("product.menCategory"))).getText();
 		String SubCategoryName = driver.findElement(By.xpath(locators.getProperty("men.menTShirts"))).getText();
 		wait.waitForElementToBeClickable(menTShirts).click();
-		System.out.println("Category Name = " + categoryName);
-		System.out.println("SubCategory Name = " + SubCategoryName);
 		categoryHeader(categoryName, SubCategoryName);
 	}
 
@@ -188,8 +180,6 @@ public class ProductPage {
 		String categoryName = driver.findElement(By.xpath(locators.getProperty("product.menCategory"))).getText();
 		String SubCategoryName = driver.findElement(By.xpath(locators.getProperty("men.menJeans"))).getText();
 		wait.waitForElementToBeClickable(menJeans).click();
-		System.out.println("Category Name = " + categoryName);
-		System.out.println("SubCategory Name = " + SubCategoryName);
 		categoryHeader(categoryName, SubCategoryName);
 	}
 
@@ -204,8 +194,6 @@ public class ProductPage {
 		String categoryName = driver.findElement(By.xpath(locators.getProperty("product.kidsCategory"))).getText();
 		String SubCategoryName = driver.findElement(By.xpath(locators.getProperty("kids.kidsDress"))).getText();
 		wait.waitForElementToBeClickable(kidsDress).click();
-		System.out.println("Category Name = " + categoryName);
-		System.out.println("SubCategory Name = " + SubCategoryName);
 		categoryHeader(categoryName, SubCategoryName);
 	}
 
@@ -216,22 +204,18 @@ public class ProductPage {
 		String SubCategoryName = driver.findElement(By.xpath(locators.getProperty("kids.kidsTopsAndTShirts")))
 				.getText();
 		wait.waitForElementToBeClickable(kidsTopsAndTShirts).click();
-		System.out.println("Category Name = " + categoryName);
-		System.out.println("SubCategory Name = " + SubCategoryName);
 		categoryHeader(categoryName, SubCategoryName);
 	}
 
 	public void categoryHeader(String categoryName, String subCategoryName) {
 		String categoryHeaderText = driver.findElement(By.xpath("//h2[@class='title text-center']")).getText();
 		Assert.assertEquals(categoryHeaderText, "" + categoryName + " - " + subCategoryName + " PRODUCTS");
-		System.out.println(categoryHeaderText);
 	}
 
 	public void brandHeader(String brandName) {
 		String brandHeaderText = driver.findElement(By.xpath(locators.getProperty("product.brandCategoryHeaderText")))
 				.getText();
-		// Assert.assertEquals(brandHeaderText, "Brand -"+ brandName +" Products");
-		System.out.println(brandHeaderText);
+		//Assert.assertEquals(brandHeaderText, "Brand -"+ brandName +" Products");
 	}
 
 	public String clickOnBrandPolo() {

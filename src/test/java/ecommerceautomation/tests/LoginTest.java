@@ -1,5 +1,7 @@
 package ecommerceautomation.tests;
 
+import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
 import ecommerceautomation.base.BaseTest;
 import ecommerceautomation.pages.AccountInformationPage;
 import ecommerceautomation.pages.HomePage;
@@ -39,7 +41,7 @@ public class LoginTest extends BaseTest {
 
     // ------------------ Tests ------------------
 
-    @Test(dataProvider = "validLoginData")
+    @Test(dataProvider = "validLoginData", groups= {"sanity"})
     public void validUserLoginTest(String email, String password) {
         LoginPage loginPage = new LoginPage(getDriver(), wait);
 
@@ -50,7 +52,7 @@ public class LoginTest extends BaseTest {
             System.out.println("Login successful for valid user: " + email);
             ((HomePage) nextPage).logout();
         } else {
-            Assert.fail("Login failed for valid user: " + email);
+            AssertJUnit.fail("Login failed for valid user: " + email);
         }
     }
 
@@ -64,11 +66,10 @@ public class LoginTest extends BaseTest {
         if (nextPage instanceof LoginPage) {
             String actualMessage = loginPage.getLoginErrorMessage();
             String expectedMessage = "Your email or password is incorrect!";
-            Assert.assertEquals(actualMessage, expectedMessage,
-                    "Incorrect error message for invalid user: " + email);
+            AssertJUnit.assertEquals(actualMessage, expectedMessage);
             System.out.println("Login failed for invalid user: " + email + " | Message: " + actualMessage);
         } else {
-            Assert.fail("Login succeeded for invalid user: " + email);
+            AssertJUnit.fail("Login succeeded for invalid user: " + email);
         }
     }
 

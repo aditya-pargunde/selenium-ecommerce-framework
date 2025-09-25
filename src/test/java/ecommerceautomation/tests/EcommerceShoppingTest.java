@@ -1,5 +1,7 @@
 package ecommerceautomation.tests;
 
+import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
 import ecommerceautomation.base.BaseTest;
 import ecommerceautomation.pages.*;
 import ecommerceautomation.utils.ExcelUtils;
@@ -15,7 +17,7 @@ public class EcommerceShoppingTest extends BaseTest {
         return excel.getAllRowsAsObjectArray();
     }
 
-    @Test(groups = { "regression" }, dataProvider = "loginData")
+    @Test(dataProvider = "loginData")
     public void fullEndToEndFlow(String email, String password, String expectedResult) {
         // Step 1: Login with valid credentials
         if (expectedResult.equalsIgnoreCase("success")) {

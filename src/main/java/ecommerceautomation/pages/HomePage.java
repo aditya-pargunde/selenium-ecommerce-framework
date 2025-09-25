@@ -71,7 +71,6 @@ public class HomePage {
 	public HomePage verifyAccountDeletedMessage() {
 		WebElement DeletionSuccessMessage = driver.findElement(By.xpath(locators.getProperty("home.AccountDeletionSuccessMessage")));
 		Assert.assertEquals(DeletionSuccessMessage.getText(), "ACCOUNT DELETED!");
-		System.out.print(DeletionSuccessMessage.getText());
 		return new HomePage(driver,wait);
 	}
 }

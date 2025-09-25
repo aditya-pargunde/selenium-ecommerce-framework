@@ -1,124 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="4" passed="3" failed="1" skipped="0">
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-09-23T23:36:38 IST" name="Default suite" finished-at="2025-09-23T23:40:41 IST" duration-ms="242702">
+  <suite started-at="2025-09-25T17:01:13 IST" name="Default suite" finished-at="2025-09-25T17:02:06 IST" duration-ms="53562">
     <groups>
-      <group name="cucumber">
-        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:Cucumber.CucumberTestRunner@762ef0ea]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
-      </group> <!-- cucumber -->
+      <group name="regression">
+        <method signature="CategoryBrandTest.checkCategoryAndBrand()[pri:0, instance:ecommerceautomation.tests.CategoryBrandTest@158a8276]" name="checkCategoryAndBrand" class="ecommerceautomation.tests.CategoryBrandTest"/>
+      </group> <!-- regression -->
     </groups>
-    <test started-at="2025-09-23T23:36:38 IST" name="Default test" finished-at="2025-09-23T23:40:41 IST" duration-ms="242702">
-      <class name="Cucumber.CucumberTestRunner">
-        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:Cucumber.CucumberTestRunner@762ef0ea]" started-at="2025-09-23T23:36:38 IST" name="setUpClass" finished-at="2025-09-23T23:36:39 IST" duration-ms="364" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[org.testng.TestRunner@65f40689]]>
-              </value>
-            </param>
-          </params>
+    <test started-at="2025-09-25T17:01:13 IST" name="Default test" finished-at="2025-09-25T17:02:06 IST" duration-ms="53562">
+      <class name="ecommerceautomation.tests.CategoryBrandTest">
+        <test-method is-config="true" signature="setupConfig()[pri:0, instance:ecommerceautomation.tests.CategoryBrandTest@158a8276]" started-at="2025-09-25T17:01:13 IST" name="setupConfig" finished-at="2025-09-25T17:01:13 IST" duration-ms="9" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- setUpClass -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:Cucumber.CucumberTestRunner@762ef0ea]" started-at="2025-09-23T23:36:39 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-09-23T23:38:28 IST" duration-ms="109553" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA["Successful account deletion test"]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA["Verify Delete Account Functionality"]]>
-              </value>
-            </param>
-          </params>
+        </test-method> <!-- setupConfig -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:ecommerceautomation.tests.CategoryBrandTest@158a8276]" started-at="2025-09-25T17:01:13 IST" name="setUp" finished-at="2025-09-25T17:01:40 IST" duration-ms="27020" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:Cucumber.CucumberTestRunner@762ef0ea]" started-at="2025-09-23T23:38:28 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-09-23T23:40:20 IST" duration-ms="111528" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA["Successful login with valid credentials"]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA["Login functionality"]]>
-              </value>
-            </param>
-          </params>
+        </test-method> <!-- setUp -->
+        <test-method signature="checkCategoryAndBrand()[pri:0, instance:ecommerceautomation.tests.CategoryBrandTest@158a8276]" started-at="2025-09-25T17:01:40 IST" name="checkCategoryAndBrand" finished-at="2025-09-25T17:02:06 IST" duration-ms="26275" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:Cucumber.CucumberTestRunner@762ef0ea]" started-at="2025-09-23T23:40:20 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-09-23T23:40:22 IST" duration-ms="2114" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA["Unsuccessful login with invalid credentials"]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA["Login functionality"]]>
-              </value>
-            </param>
-          </params>
+        </test-method> <!-- checkCategoryAndBrand -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:ecommerceautomation.tests.CategoryBrandTest@158a8276]" started-at="2025-09-25T17:02:06 IST" name="tearDown" finished-at="2025-09-25T17:02:06 IST" duration-ms="229" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:Cucumber.CucumberTestRunner@762ef0ea]" started-at="2025-09-23T23:40:22 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-09-23T23:40:41 IST" duration-ms="19086" status="FAIL">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA["Successful signup test"]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA["Check Signup Functionality"]]>
-              </value>
-            </param>
-          </params>
-          <exception class="org.openqa.selenium.TimeoutException">
-            <message>
-              <![CDATA[Expected condition failed: waiting for visibility of element located by By.xpath: //input[@name='title'] (tried for 15 second(s) with 500 milliseconds interval)
-Build info: version: '4.23.0', revision: '4df0a231af'
-System info: os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '15.4.1', java.version: '23.0.2'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 140.0.7339.185, chrome: {chromedriverVersion: 140.0.7339.185 (eeea00e459e..., userDataDir: /var/folders/fh/mrx4vbm562g...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:62896}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:62896/devtoo..., se:cdpVersion: 140.0.7339.185, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: d80ea0f25745fcf5ffdaa5ea458fc62c]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: //input[@name='title'] (tried for 15 second(s) with 500 milliseconds interval)
-Build info: version: '4.23.0', revision: '4df0a231af'
-System info: os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '15.4.1', java.version: '23.0.2'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 140.0.7339.185, chrome: {chromedriverVersion: 140.0.7339.185 (eeea00e459e..., userDataDir: /var/folders/fh/mrx4vbm562g...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:62896}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:62896/devtoo..., se:cdpVersion: 140.0.7339.185, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: d80ea0f25745fcf5ffdaa5ea458fc62c
-at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
-at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
-at ecommerceautomation.utils.WaitUtils.waitForElementToBeVisible(WaitUtils.java:43)
-at ecommerceautomation.pages.AccountInformationPage.enterAccountInformation(AccountInformationPage.java:57)
-at ecommerceautomation.stepdefinitions.SignupSteps.user_enters_credentials(SignupSteps.java:54)
-at ✽.User enters name "Aditya" email "ap@test.com" title "Mrs. " password "Aditya1" Day "10" Month "July" Year "1992" firstname "Aditya" lastname "P" company "ABC" Address "Ye hi hai address" Country "India" State "Maharashtra" City "Solapur" Zipcode "123456" MobileNo "9876543210"(file:///Users/adityapargunde/eclipse-workspace/selenium-ecommerce-framework/src/test/resources/features/Signup.feature:6)
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.TimeoutException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- runScenario -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:Cucumber.CucumberTestRunner@762ef0ea]" started-at="2025-09-23T23:40:41 IST" name="tearDownClass" finished-at="2025-09-23T23:40:41 IST" duration-ms="15" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDownClass -->
-        <test-method is-config="true" signature="tearDownSuite()[pri:0, instance:Cucumber.CucumberTestRunner@762ef0ea]" started-at="2025-09-23T23:40:41 IST" name="tearDownSuite" finished-at="2025-09-23T23:40:41 IST" duration-ms="212" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDownSuite -->
-      </class> <!-- Cucumber.CucumberTestRunner -->
+        </test-method> <!-- tearDown -->
+      </class> <!-- ecommerceautomation.tests.CategoryBrandTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

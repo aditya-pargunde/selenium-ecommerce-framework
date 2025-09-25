@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Default test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>3/1/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>1/0/0</td>
 </tr><tr>
-<td>Started on:</td><td>Tue Sep 23 23:36:38 IST 2025</td>
+<td>Started on:</td><td>Thu Sep 25 17:01:13 IST 2025</td>
 </tr>
-<tr><td>Total time:</td><td>242 seconds (242702 ms)</td>
+<tr><td>Total time:</td><td>53 seconds (53562 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -67,45 +67,6 @@ function toggleAllBoxes() {
 </tr>
 </table><p/>
 <small><i>(Hover the method name to see the test class name)</i></small><p/>
-<table width='100%' border='1' class='invocation-failed'>
-<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
-<tr><td><b>Test method</b></td>
-<td><b>Attribute(s)</b></td>
-<td width="30%"><b>Exception</b></td>
-<td width="10%"><b>Time (seconds)</b></td>
-<td><b>Instance</b></td>
-</tr>
-<tr>
-<td title='Cucumber.CucumberTestRunner.runScenario()'><b>runScenario</b><br>Test class: Cucumber.CucumberTestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Successful signup test", "Check Signup Functionality"</td>
-<td><div><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: //input[@name=&apos;title&apos;] (tried for 15 second(s) with 500 milliseconds interval)
-Build info: version: &apos;4.23.0&apos;, revision: &apos;4df0a231af&apos;
-System info: os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;15.4.1&apos;, java.version: &apos;23.0.2&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 140.0.7339.185, chrome: {chromedriverVersion: 140.0.7339.185 (eeea00e459e..., userDataDir: /var/folders/fh/mrx4vbm562g...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:62896}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:62896/devtoo..., se:cdpVersion: 140.0.7339.185, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: d80ea0f25745fcf5ffdaa5ea458fc62c
-	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
-	at ecommerceautomation.utils.WaitUtils.waitForElementToBeVisible(WaitUtils.java:43)
-	at ecommerceautomation.pages.AccountInformationPage.enterAccountInformation(AccountInformationPage.java:57)
-	at ecommerceautomation.stepdefinitions.SignupSteps.user_enters_credentials(SignupSteps.java:54)
-	at ✽.User enters name &quot;Aditya&quot; email &quot;ap@test.com&quot; title &quot;Mrs. &quot; password &quot;Aditya1&quot; Day &quot;10&quot; Month &quot;July&quot; Year &quot;1992&quot; firstname &quot;Aditya&quot; lastname &quot;P&quot; company &quot;ABC&quot; Address &quot;Ye hi hai address&quot; Country &quot;India&quot; State &quot;Maharashtra&quot; City &quot;Solapur&quot; Zipcode &quot;123456&quot; MobileNo &quot;9876543210&quot;(file:///Users/adityapargunde/eclipse-workspace/selenium-ecommerce-framework/src/test/resources/features/Signup.feature:6)
-</pre></div><a href='#' onClick='toggleBox("stack-trace789640755", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace789640755'><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: //input[@name=&apos;title&apos;] (tried for 15 second(s) with 500 milliseconds interval)
-Build info: version: &apos;4.23.0&apos;, revision: &apos;4df0a231af&apos;
-System info: os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;15.4.1&apos;, java.version: &apos;23.0.2&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 140.0.7339.185, chrome: {chromedriverVersion: 140.0.7339.185 (eeea00e459e..., userDataDir: /var/folders/fh/mrx4vbm562g...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:62896}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:62896/devtoo..., se:cdpVersion: 140.0.7339.185, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: d80ea0f25745fcf5ffdaa5ea458fc62c
-	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
-	at ecommerceautomation.utils.WaitUtils.waitForElementToBeVisible(WaitUtils.java:43)
-	at ecommerceautomation.pages.AccountInformationPage.enterAccountInformation(AccountInformationPage.java:57)
-	at ecommerceautomation.stepdefinitions.SignupSteps.user_enters_credentials(SignupSteps.java:54)
-	at ✽.User enters name &quot;Aditya&quot; email &quot;ap@test.com&quot; title &quot;Mrs. &quot; password &quot;Aditya1&quot; Day &quot;10&quot; Month &quot;July&quot; Year &quot;1992&quot; firstname &quot;Aditya&quot; lastname &quot;P&quot; company &quot;ABC&quot; Address &quot;Ye hi hai address&quot; Country &quot;India&quot; State &quot;Maharashtra&quot; City &quot;Solapur&quot; Zipcode &quot;123456&quot; MobileNo &quot;9876543210&quot;(file:///Users/adityapargunde/eclipse-workspace/selenium-ecommerce-framework/src/test/resources/features/Signup.feature:6)
-</pre></div></td>
-<td>19</td>
-<td>Cucumber.CucumberTestRunner@762ef0ea</td></tr>
-</table><p>
 <table width='100%' border='1' class='invocation-passed'>
 <tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
 <tr><td><b>Test method</b></td>
@@ -115,20 +76,10 @@ Session ID: d80ea0f25745fcf5ffdaa5ea458fc62c
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='Cucumber.CucumberTestRunner.runScenario()'><b>runScenario</b><br>Test class: Cucumber.CucumberTestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Successful account deletion test", "Verify Delete Account Functionality"</td>
+<td title='ecommerceautomation.tests.CategoryBrandTest.checkCategoryAndBrand()'><b>checkCategoryAndBrand</b><br>Test class: ecommerceautomation.tests.CategoryBrandTest</td>
 <td></td>
-<td>109</td>
-<td>Cucumber.CucumberTestRunner@762ef0ea</td></tr>
-<tr>
-<td title='Cucumber.CucumberTestRunner.runScenario()'><b>runScenario</b><br>Test class: Cucumber.CucumberTestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Unsuccessful login with invalid credentials", "Login functionality"</td>
-<td></td>
-<td>2</td>
-<td>Cucumber.CucumberTestRunner@762ef0ea</td></tr>
-<tr>
-<td title='Cucumber.CucumberTestRunner.runScenario()'><b>runScenario</b><br>Test class: Cucumber.CucumberTestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Successful login with valid credentials", "Login functionality"</td>
-<td></td>
-<td>111</td>
-<td>Cucumber.CucumberTestRunner@762ef0ea</td></tr>
+<td>26</td>
+<td>ecommerceautomation.tests.CategoryBrandTest@158a8276</td></tr>
 </table><p>
 </body>
 </html>

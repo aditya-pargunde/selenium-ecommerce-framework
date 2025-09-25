@@ -18,7 +18,7 @@ public class SignupPageTest extends BaseTest {
 		return excel.getAllRowsAsObjectArray();
 	}
 
-	@Test(dataProvider = "registerUserData")
+	@Test(dataProvider = "registerUserData", groups = {"sanity"})
 	public void registerNewUserTest(String name, String email, String password, String title, String day, String month,
 			String year, String firstname, String lastname, String company, String address, String country,
 			String state, String city, String zip, String mobileNo) {

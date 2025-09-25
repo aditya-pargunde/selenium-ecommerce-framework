@@ -1,5 +1,7 @@
 package ecommerceautomation.tests;
 
+import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
 import ecommerceautomation.base.BaseTest;
 import ecommerceautomation.pages.CartPage;
 import ecommerceautomation.pages.HomePage;
@@ -9,7 +11,7 @@ import org.testng.annotations.Test;
 
 public class CartTest extends BaseTest {
 
-	@Test
+	@Test(groups = {"sanity"})
 	public void verifyCartOperations() {
 		// this is to remove a product from cart
 

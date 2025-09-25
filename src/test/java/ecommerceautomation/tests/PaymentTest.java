@@ -1,5 +1,7 @@
 package ecommerceautomation.tests;
 
+import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
 import ecommerceautomation.base.BaseTest;
 import ecommerceautomation.pages.CartPage;
 import ecommerceautomation.pages.CheckoutPage;
@@ -9,7 +11,6 @@ import ecommerceautomation.pages.OrderConfirmationPage;
 import ecommerceautomation.pages.PaymentPage;
 import ecommerceautomation.pages.ProductPage;
 import ecommerceautomation.utils.ExcelUtils;
-
 import java.util.Arrays;
 import java.util.List;
 import org.testng.Assert;
@@ -48,7 +49,7 @@ public class PaymentTest extends BaseTest {
 		return data;
 	}
 
-	@Test(dataProvider = "UserAndPaymentData")
+	@Test(dataProvider = "UserAndPaymentData", groups= {"regression"})
 	public void completePaymentFlow(String name, String email, String password, String nameOnCard, String cardNumber,
 			String cvc, String expiryMonth, String expiryYear) {
 

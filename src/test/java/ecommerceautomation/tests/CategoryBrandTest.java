@@ -1,15 +1,15 @@
 package ecommerceautomation.tests;
 
+import org.testng.annotations.Test;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
 import ecommerceautomation.base.BaseTest;
 import ecommerceautomation.pages.CartPage;
 import ecommerceautomation.pages.HomePage;
 import ecommerceautomation.pages.ProductPage;
 
 public class CategoryBrandTest extends BaseTest {
-	@Test
+	@Test(groups= {"regression"})
 	public void checkCategoryAndBrand() {
 		// Step 1: click on Women category
 		HomePage homePage = new HomePage(getDriver(), wait);

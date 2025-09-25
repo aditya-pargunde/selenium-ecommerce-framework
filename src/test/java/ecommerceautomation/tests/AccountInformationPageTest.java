@@ -17,7 +17,7 @@ public class AccountInformationPageTest extends BaseTest {
 		return excel.getAllRowsAsObjectArray();
 	}
 
-	@Test(dataProvider = "registerUserData")
+	@Test(dataProvider = "registerUserData", groups= {"sanity"})
 	public void registerNewUserTest(String name, String email, String password, String title, String day, String month,
 			String year, String firstname, String lastname, String company, String address, String country,
 			String state, String city, String zip, String mobileNo) {
@@ -40,6 +40,7 @@ public class AccountInformationPageTest extends BaseTest {
 		// Step 4: Click create account and navigate to the home page
 		HomePage homePage = accountInfoPage.clickOnCreateAccountButton();
 		accountInfoPage.accountCreationConfirmation();
+		accountInfoPage.clickOnContinueButton();
 
 		// Step 5: Assert that account creation was successful
 		Assert.assertTrue(homePage.isUserLoggedIn(), "Account creation failed or user not logged in.");
