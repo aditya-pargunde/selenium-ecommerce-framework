@@ -24,8 +24,8 @@ public class ExtentTestNGListener implements ITestListener {
 
 	@Override
 	public void onStart(ITestContext context) {
-//        ExtentSparkReporter spark = new ExtentSparkReporter("test-output/ExtentReport.html");
-//        extent.attachReporter(spark);
+        ExtentSparkReporter spark = new ExtentSparkReporter("test-output/ExtentReport.html");
+        extent.attachReporter(spark);
 
 		// Ensure screenshots folder exists
 		try {
@@ -61,16 +61,16 @@ public class ExtentTestNGListener implements ITestListener {
 	        System.out.println("⚠️ Driver is null, screenshot cannot be captured");
 	    }
 
-//        // Get WebDriver from BaseTest
-//        WebDriver driver = BaseTest.getDriver();
-//        System.out.println("Driver in listener: " + driver);
-//
-//        if (driver != null) {
-//            // Capture screenshot with ScreenshotUtils
-//            String screenshotPath = ScreenshotUtils.captureScreenshot(driver, result.getMethod().getMethodName());
-//            // Attach screenshot to report
-//			test.get().addScreenCaptureFromPath(screenshotPath);
-//        }
+        // Get WebDriver from BaseTest
+        driver = BaseTest.getDriver();
+        System.out.println("Driver in listener: " + driver);
+
+        if (driver != null) {
+            // Capture screenshot with ScreenshotUtils
+            String screenshotPath = ScreenshotUtils.captureScreenshot(driver, result.getMethod().getMethodName());
+            // Attach screenshot to report
+			test.get().addScreenCaptureFromPath(screenshotPath);
+        }
 	}
 
 	@Override

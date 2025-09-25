@@ -1,5 +1,8 @@
 package ecommerceautomation.base;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -7,10 +10,13 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
-
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class DriverManager {
+	static {
+        Logger seleniumLogger = Logger.getLogger("org.openqa.selenium");
+        seleniumLogger.setLevel(Level.SEVERE); // Only show SEVERE logs
+    }
 
     private static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
 
