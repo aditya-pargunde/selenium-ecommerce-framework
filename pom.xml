@@ -95,7 +95,7 @@
 						<version>3.5.3</version>
 						<configuration>
 							<suiteXmlFiles>
-								<suiteXmlFile>TestSuites/testng.xml</suiteXmlFile>
+								<suiteXmlFile>TestSuites/RegressionTests.xml</suiteXmlFile>
 							</suiteXmlFiles>
 						</configuration>
 					</plugin>
