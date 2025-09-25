@@ -2,7 +2,6 @@ package ecommerceautomation.base;
 
 import java.time.Duration;
 import java.util.Properties;
-
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
