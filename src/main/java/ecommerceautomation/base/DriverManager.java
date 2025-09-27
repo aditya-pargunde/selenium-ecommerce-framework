@@ -20,9 +20,6 @@ public class DriverManager {
 
     private static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
 
-    /**
-     * Initialize WebDriver based on browser and headless flag
-     */
     public static WebDriver initDriver(String browser, boolean headless) {
         if (browser.equalsIgnoreCase("chrome")) {
             WebDriverManager.chromedriver().setup();

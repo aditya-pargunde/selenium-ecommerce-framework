@@ -52,7 +52,7 @@ public class ExtentTestNGListener implements ITestListener {
 	    System.out.println("Test failed: " + result.getMethod().getMethodName());
 
 	    // Get WebDriver from BaseTest statically
-	    WebDriver driver = BaseTest.getDriver(); // <-- static access
+	    WebDriver driver = BaseTest.getDriver();
 
 	    if (driver != null) {
 	        String screenshotPath = ScreenshotUtils.captureScreenshot(driver, result.getMethod().getMethodName());

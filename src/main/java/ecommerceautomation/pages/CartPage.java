@@ -43,7 +43,6 @@ public class CartPage {
 	private By checkoutButton = By.xpath(locators.getProperty("cart.checkoutButton"));
 	private By checkoutModal = By.xpath(locators.getProperty("cart.checkoutModal"));
 	private By registerLoginButtonAtModal = By.xpath(locators.getProperty("cart.RegisterLoginButtonAtModal"));
-	// private By modalContent = By.xpath("//div[@class='modal-content']");
 	private By cartPageLink = By.xpath("//a[@href='/view_cart']");
 
 	// ------------------- Public Methods -------------------

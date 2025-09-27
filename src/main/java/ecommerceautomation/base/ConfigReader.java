@@ -3,11 +3,7 @@ package ecommerceautomation.base;
 import java.io.InputStream;
 import java.util.Properties;
 
-/**
- * ConfigReader:
- * - Loads values from src/main/resources/config.properties
- * - Allows overriding via system property (-Dkey=value)
- */
+
 public final class ConfigReader {
 
     private static final String CONFIG_FILE = "config.properties";

@@ -90,7 +90,7 @@ public class LoginPage {
 		if (wait.isElementVisible(logoutButton, 5)) {
 			return new HomePage(driver, wait);
 		} else {
-			return new LoginPage(driver, wait); // Stay on the login page on failure
+			return new LoginPage(driver, wait);
 		}
 		
 	}

@@ -49,8 +49,6 @@ public class AccountInformationPage {
 	private By zipcode = By.xpath(locators.getProperty("account.zipcode"));
 	private By mobileNumber = By.xpath(locators.getProperty("account.mobileNumber"));
 	private By createAccountButton = By.xpath(locators.getProperty("account.createAccountButton"));
-	//private By continueButton = By.xpath(locators.getProperty("account.continueButton"));
-	//private By accountCreationSuccessMessage = By.xpath(locators.getProperty("account.accountCreationSuccessMessage"));
 
 	// ------------------- Public Methods -------------------
 	public void enterAccountInformation(String title, String password, String day, String month, String year) {

@@ -16,11 +16,11 @@ import java.lang.reflect.Method;
 @Listeners(ecommerceautomation.listeners.ScreenshotListener.class)
 public class BaseTest {
 
-	// Make the config variable static so it's shared across all tests
+	//config variable is static so it's shared across all tests
 	public static Properties config;
 	public WebDriver driver;
 	protected WaitUtils wait;
-	
+
 	@BeforeSuite(alwaysRun = true)
 	public void setupConfig() {
 		if (config == null) {
@@ -47,7 +47,6 @@ public class BaseTest {
 		DriverManager.quitDriver();
 	}
 
-	// This method is already static, which is good
 	public static WebDriver getDriver() {
 		return DriverManager.getDriver();
 	}
