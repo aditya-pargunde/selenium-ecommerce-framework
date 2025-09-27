@@ -3,6 +3,7 @@ package ecommerceautomation.tests;
 import org.testng.annotations.Test;
 import org.testng.AssertJUnit;
 import ecommerceautomation.base.BaseTest;
+import ecommerceautomation.listeners.ExtentTestNGListener;
 import ecommerceautomation.pages.HomePage;
 import ecommerceautomation.pages.LoginPage;
 import ecommerceautomation.pages.ProductPage;
@@ -13,11 +14,13 @@ import ecommerceautomation.pages.OrderConfirmationPage;
 import ecommerceautomation.utils.ExcelUtils;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import java.util.Arrays;
 import java.util.List;
 
+@Listeners(ExtentTestNGListener.class)
 public class CheckoutTest extends BaseTest {
 
 	@DataProvider(name = "checkoutData")

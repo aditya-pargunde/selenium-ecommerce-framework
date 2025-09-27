@@ -24,8 +24,8 @@ public class ExtentTestNGListener implements ITestListener {
 
 	@Override
 	public void onStart(ITestContext context) {
-        ExtentSparkReporter spark = new ExtentSparkReporter("test-output/ExtentReport.html");
-        extent.attachReporter(spark);
+//        ExtentSparkReporter spark = new ExtentSparkReporter("test-output/ExtentReport.html");
+//        extent.attachReporter(spark);
 
 		// Ensure screenshots folder exists
 		try {
@@ -81,5 +81,7 @@ public class ExtentTestNGListener implements ITestListener {
 	@Override
 	public void onFinish(ITestContext context) {
 		extent.flush();
+        System.out.println("⭐ Extent Report generated at: " + System.getProperty("user.dir") + "/reports/ExtentReport.html");
+
 	}
 }

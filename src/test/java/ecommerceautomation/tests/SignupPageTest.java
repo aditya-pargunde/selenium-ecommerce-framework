@@ -1,6 +1,7 @@
 package ecommerceautomation.tests;
 
 import ecommerceautomation.base.BaseTest;
+import ecommerceautomation.listeners.ExtentTestNGListener;
 import ecommerceautomation.pages.SignupPage;
 import ecommerceautomation.pages.AccountInformationPage;
 import ecommerceautomation.pages.HomePage;
@@ -8,8 +9,10 @@ import ecommerceautomation.pages.LoginPage;
 import ecommerceautomation.utils.ExcelUtils;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+@Listeners(ExtentTestNGListener.class)
 public class SignupPageTest extends BaseTest {
 
 	@DataProvider(name = "registerUserData")

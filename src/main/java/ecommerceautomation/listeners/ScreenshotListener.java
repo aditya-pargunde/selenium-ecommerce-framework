@@ -10,7 +10,7 @@ public class ScreenshotListener implements ITestListener {
 	
 	   @Override
 	    public void onTestStart(ITestResult result) {
-	        System.out.println("🔹 Test Started: " + result.getMethod().getMethodName());
+	        System.out.println("⭐ Test Started: " + result.getMethod().getMethodName());
 	    }
 
 	    @Override

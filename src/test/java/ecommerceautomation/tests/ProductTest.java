@@ -1,14 +1,17 @@
 package ecommerceautomation.tests;
 
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import org.testng.AssertJUnit;
 import ecommerceautomation.base.BaseTest;
+import ecommerceautomation.listeners.ExtentTestNGListener;
 import ecommerceautomation.pages.CartPage;
 import ecommerceautomation.pages.HomePage;
 import ecommerceautomation.pages.ProductPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+@Listeners(ExtentTestNGListener.class)
 public class ProductTest extends BaseTest {
 
 	@Test(groups = {"sanity"})

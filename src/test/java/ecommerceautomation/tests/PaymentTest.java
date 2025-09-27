@@ -3,6 +3,7 @@ package ecommerceautomation.tests;
 import org.testng.annotations.Test;
 import org.testng.AssertJUnit;
 import ecommerceautomation.base.BaseTest;
+import ecommerceautomation.listeners.ExtentTestNGListener;
 import ecommerceautomation.pages.CartPage;
 import ecommerceautomation.pages.CheckoutPage;
 import ecommerceautomation.pages.HomePage;
@@ -15,8 +16,10 @@ import java.util.Arrays;
 import java.util.List;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+@Listeners(ExtentTestNGListener.class)
 public class PaymentTest extends BaseTest {
 	@DataProvider(name = "UserAndPaymentData")
 	public Object[][] getCombinedData() throws Exception {

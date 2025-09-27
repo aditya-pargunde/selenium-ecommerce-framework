@@ -1,13 +1,16 @@
 package ecommerceautomation.tests;
 import ecommerceautomation.base.BaseTest;
+import ecommerceautomation.listeners.ExtentTestNGListener;
 import ecommerceautomation.pages.*;
 import ecommerceautomation.utils.ExcelUtils;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import java.util.Arrays;
 import java.util.List;
 
+@Listeners(ExtentTestNGListener.class)
 public class OrderConfirmationTest extends BaseTest {
 
 	@DataProvider(name = "orderData")

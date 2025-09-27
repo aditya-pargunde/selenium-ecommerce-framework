@@ -1,13 +1,16 @@
 package ecommerceautomation.tests;
 
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import ecommerceautomation.base.BaseTest;
+import ecommerceautomation.listeners.ExtentTestNGListener;
 import ecommerceautomation.pages.CartPage;
 import ecommerceautomation.pages.HomePage;
 import ecommerceautomation.pages.ProductPage;
 
+@Listeners(ExtentTestNGListener.class)
 public class CategoryBrandTest extends BaseTest {
 	@Test(groups= {"regression"})
 	public void checkCategoryAndBrand() {

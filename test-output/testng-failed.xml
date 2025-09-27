@@ -3,14 +3,14 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="ecommerceautomation.tests.CategoryBrandTest">
+      <class name="ecommerceautomation.tests.ProductTest">
         <methods>
-          <include name="checkCategoryAndBrand"/>
+          <include name="searchAndAddProductToCart"/>
           <include name="setupConfig"/>
           <include name="setUp"/>
           <include name="tearDown"/>
         </methods>
-      </class> <!-- ecommerceautomation.tests.CategoryBrandTest -->
+      </class> <!-- ecommerceautomation.tests.ProductTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
