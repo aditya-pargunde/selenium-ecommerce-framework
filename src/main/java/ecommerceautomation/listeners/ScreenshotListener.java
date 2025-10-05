@@ -17,12 +17,12 @@ public class ScreenshotListener implements ITestListener {
 	    public void onTestSuccess(ITestResult result) {
 	        System.out.println("✅ Test Passed: " + result.getMethod().getMethodName());
 	    }
-    @Override
-    public void onTestFailure(ITestResult result) {
-        System.out.println("❌ Test failed: " + result.getMethod().getMethodName());
-        // Capture screenshot using your static method
-        ScreenshotUtils.captureScreenshot(BaseTest.getDriver(), result.getMethod().getMethodName());
-    }
+//    @Override
+//    public void onTestFailure(ITestResult result) {
+//        System.out.println("❌ Test failed: " + result.getMethod().getMethodName());
+//        // Capture screenshot using your static method
+//        ScreenshotUtils.captureScreenshot(BaseTest.getDriver(), result.getMethod().getMethodName());
+//    }
 
     @Override
     public void onTestSkipped(ITestResult result) {

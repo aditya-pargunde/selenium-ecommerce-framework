@@ -4,6 +4,7 @@ import ecommerceautomation.utils.WaitUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -36,10 +37,16 @@ public class SignupPage {
 	private By emailInputForSignup = By.xpath(locators.getProperty("signup.signupEmail"));
 	private By signupButton = By.xpath(locators.getProperty("signup.signupButton"));
 	private By emailExistsMessage = By.xpath(locators.getProperty("signup.signupEmailExistMessage"));
+	private By signupText = By.xpath(locators.getProperty("signup.newSignupText")); 
 
 	// ------------------- Public Methods -------------------
 	public void clickOnSignupLoginLink() {
 		wait.waitForElementToBeClickable(signupLoginLink).click();
+	}
+	
+	public void isSignupTextVisible() {
+		WebElement newUserSignupText = driver.findElement(By.xpath(locators.getProperty("signup.newSignupText")));
+		Assert.assertEquals(newUserSignupText.getText(), "New User Signup!");
 	}
 
 	public void enterNameAtSignUp(String name) {

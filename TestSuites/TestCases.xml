@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="EcommerceSuite">
+    <!-- You can run multiple <test> tags if needed -->
+    <test name="Test Case Execution">
+        <classes>
+            <class name="ecommerceautomation.tests.TestCaseOne"/>
+            <class name="ecommerceautomation.tests.TestCaseTwo"/>
+            <class name="ecommerceautomation.tests.TestCaseThree"/>
+            <class name="ecommerceautomation.tests.TestCaseFour"/>
+            <class name="ecommerceautomation.tests.TestCaseFive"/>
+            <class name="ecommerceautomation.tests.TestCaseSix"/>
+            <class name="ecommerceautomation.tests.TestCaseEight"/>
+            <class name="ecommerceautomation.tests.TestCaseNine"/>
+            <class name="ecommerceautomation.tests.TestCaseFourteen"/>
+            <class name="ecommerceautomation.tests.TestCaseSixteen"/>
+            <class name="ecommerceautomation.tests.TestCaseSeventeen"/>
+            <class name="ecommerceautomation.tests.TestCaseNineteen"/>
+        </classes>
+    </test>
+</suite>

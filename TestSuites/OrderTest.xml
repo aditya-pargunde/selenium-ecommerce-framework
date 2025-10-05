@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Ecommerce Test Suite">
+    <test name="Order Tests">
+        <classes>
+            <class name="ecommerceautomation.tests.OrderConfirmationTest"/>
+            <class name="ecommerceautomation.tests.PaymentTest"/>
+        </classes>
+    </test>
+</suite>

@@ -57,4 +57,8 @@ public class DriverManager {
             driver.remove();
         }
     }
+
+    public static void setDriver(WebDriver drv) {
+        driver.set(drv);
+    }
 }

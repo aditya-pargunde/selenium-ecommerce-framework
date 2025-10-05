@@ -12,6 +12,10 @@ import java.util.Date;
 public class ScreenshotUtils {
 
     public static String captureScreenshot(WebDriver driver, String testName) {
+//    	if (driver == null) {
+//            System.out.println("⚠️ WebDriver is null. Screenshot not captured for: " + testName);
+//            return null;
+//        }
         String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
         String baseDir = System.getProperty("user.dir") + "/test-output/screenshots/";
         String path = baseDir + testName + "_" + timestamp + ".png";

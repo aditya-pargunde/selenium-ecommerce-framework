@@ -4,6 +4,7 @@ import ecommerceautomation.utils.WaitUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -79,6 +80,11 @@ public class CartPage {
 		} else {
 			throw new NoSuchElementException("Product '" + productName + "' not found in the cart.");
 		}
+	}
+	
+	public void verifyProductRemoval() {
+		WebElement emptycart = driver.findElement(By.xpath("//div//b"));
+		Assert.assertEquals(emptycart.getText(), "Cart is empty!");
 	}
 
 	public CheckoutPage proceedToCheckout() {

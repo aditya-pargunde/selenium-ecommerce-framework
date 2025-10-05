@@ -49,9 +49,12 @@ public class AccountInformationPage {
 	private By zipcode = By.xpath(locators.getProperty("account.zipcode"));
 	private By mobileNumber = By.xpath(locators.getProperty("account.mobileNumber"));
 	private By createAccountButton = By.xpath(locators.getProperty("account.createAccountButton"));
+	private By acntInfoText = By.xpath(locators.getProperty("account.accountInformationText"));
 
 	// ------------------- Public Methods -------------------
 	public void enterAccountInformation(String title, String password, String day, String month, String year) {
+		WebElement accountInfoText = driver.findElement(By.xpath(locators.getProperty("account.accountInformationText")));
+		Assert.assertEquals(accountInfoText.getText(), "ENTER ACCOUNT INFORMATION");
 		wait.waitForElementToBeVisible(titleRadioButtons);
 		selectTitle(title);
 		wait.waitForElementToBeVisible(passwordInput).sendKeys(password);
@@ -81,7 +84,6 @@ public class AccountInformationPage {
 	public HomePage accountCreationConfirmation() {
 		WebElement creationSuccessMessage = driver.findElement(By.xpath(locators.getProperty("account.accountCreationSuccessMessage")));
 		Assert.assertEquals(creationSuccessMessage.getText(), "Congratulations! Your new account has been successfully created!");
-		System.out.print(creationSuccessMessage.getText());
 		return new HomePage(driver, wait);
 	}
 

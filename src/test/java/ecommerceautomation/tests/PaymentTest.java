@@ -1,7 +1,6 @@
 package ecommerceautomation.tests;
 
 import org.testng.annotations.Test;
-import org.testng.AssertJUnit;
 import ecommerceautomation.base.BaseTest;
 import ecommerceautomation.listeners.ExtentTestNGListener;
 import ecommerceautomation.pages.CartPage;
@@ -12,12 +11,10 @@ import ecommerceautomation.pages.OrderConfirmationPage;
 import ecommerceautomation.pages.PaymentPage;
 import ecommerceautomation.pages.ProductPage;
 import ecommerceautomation.utils.ExcelUtils;
-import java.util.Arrays;
 import java.util.List;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Listeners;
-import org.testng.annotations.Test;
 
 @Listeners(ExtentTestNGListener.class)
 public class PaymentTest extends BaseTest {
@@ -29,12 +26,8 @@ public class PaymentTest extends BaseTest {
 		List<String[]> loginRows = loginExcel.getAllRows();
 		List<String[]> cardRows = cardExcel.getAllRows();
 
-		// remove headers
-		// loginRows.remove(0);
-		cardRows.remove(0);
-
 		int numRows = Math.min(loginRows.size(), cardRows.size());
-		Object[][] data = new Object[numRows][8];
+		Object[][] data = new Object[numRows][23];
 
 		for (int i = 0; i < numRows; i++) {
 			String[] login = loginRows.get(i);
@@ -43,18 +36,35 @@ public class PaymentTest extends BaseTest {
 			data[i][0] = login[0]; // name
 			data[i][1] = login[1]; // email
 			data[i][2] = login[2]; // password
-			data[i][3] = card[0]; // nameOnCard
-			data[i][4] = card[1]; // cardNumber
-			data[i][5] = card[2]; // cvc
-			data[i][6] = card[3]; // expiryMonth
-			data[i][7] = card[4]; // expiryYear
+			data[i][3] = login[3]; // title
+			data[i][4] = login[4]; // day
+			data[i][5] = login[5]; // month
+			data[i][6] = login[6]; // year
+			data[i][7] = login[7]; // first name
+			data[i][8] = login[8]; // last name
+			data[i][9] = login[9]; // company
+			data[i][10] = login[10]; // address
+			data[i][11] = login[11]; // country
+			data[i][12] = login[12]; // state
+			data[i][13] = login[13]; // city
+			data[i][14] = login[14]; // zipcode
+			data[i][15] = login[15]; // mobile
+			data[i][16] = login[16]; // subject
+			data[i][17] = login[17]; // message
+			data[i][18] = card[0]; // nameOnCard
+			data[i][19] = card[1]; // cardNumber
+			data[i][20] = card[2]; // cvc
+			data[i][21] = card[3]; // expiryMonth
+			data[i][22] = card[4]; // expiryYear
 		}
 		return data;
 	}
 
-	@Test(dataProvider = "UserAndPaymentData", groups= {"regression"})
-	public void completePaymentFlow(String name, String email, String password, String nameOnCard, String cardNumber,
-			String cvc, String expiryMonth, String expiryYear) {
+	@Test(dataProvider = "UserAndPaymentData", groups = { "regression" })
+	public void completePaymentFlow(String name, String email, String password, String title, String day, String month,
+			String year, String firstName, String lastName, String company, String address, String country,
+			String state, String city, String zipcode, String mobile, String subject, String message, String nameOnCard,
+			String cardNumber, String cvc, String expiryMonth, String expiryYear) {
 
 		// Step 1: Start from home and add product
 		HomePage homePage = new HomePage(getDriver(), wait);

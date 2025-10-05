@@ -69,7 +69,51 @@ public class ProductPage {
 	private By brandKookieKids = By.xpath(locators.getProperty("product.brandKookieKids"));
 	private By brandBiba = By.xpath(locators.getProperty("product.brandBiba"));
 	private By brandCategoryHeaderText = By.xpath(locators.getProperty("product.brandCategoryHeaderText"));
+	private By allProductList= By.xpath(locators.getProperty("product.allProductList"));
+	private By brandcategorySideBar = By.xpath(locators.getProperty("product.brandcategorySidBar"));
 
+	// ------------------- Private Helper Methods -------------------
+		private void performSearch(String productName) {
+			wait.waitForElementToBeVisible(searchBox).sendKeys(productName);
+			wait.waitForElementToBeClickable(searchButton).click();
+		}
+		private WebElement findProductInList(String productName) {
+			List<WebElement> products = wait.waitForAllElementsToBeVisible(productListLocator);
+			for (WebElement product : products) {
+				WebElement searchedProductName = product.findElement(By.tagName("p"));
+				if (searchedProductName.getText().equalsIgnoreCase(productName)) {
+					return product;
+				}
+			}
+			return null;
+		}
+
+		private void addProductToCart(WebElement productElement) {
+			Actions actions = new Actions(driver);
+			// scroll to view product button due to advertisement on page
+			wait.scrollIntoView(viewProductButton);
+
+			// Hover over the product container
+			actions.moveToElement(productElement).perform();
+
+			// Now, wait and find the 'Add to cart' button after hovering
+			productElement.findElement(viewProductButton);
+			WebElement addToCartButton = productElement.findElement(By.xpath(".//a[contains(text(),'Add to cart')]"));
+			addToCartButton.click();
+		}
+
+		public CartPage handleAddToCartModal() {
+			wait.waitForElementToBeVisible(modalContent);
+			wait.waitForElementToBeClickable(viewCartLink).click();
+			return new CartPage(driver, wait);
+		}
+
+		public HomePage handleContinueShoppingModal() {
+			wait.waitForAllElementsToBeVisible(continueShopping);
+			wait.waitForElementToBeClickable(continueShopping);
+			return new HomePage(driver, wait);
+		}
+	
 	// ------------------- Public Methods -------------------
 	public CartPage searchProduct(String productName) {
 		wait.waitForElementToBeClickable(productHeader).click();
@@ -82,48 +126,24 @@ public class ProductPage {
 		}
 		return handleAddToCartModal();
 	}
-
-	// ------------------- Private Helper Methods -------------------
-	private void performSearch(String productName) {
-		wait.waitForElementToBeVisible(searchBox).sendKeys(productName);
-		wait.waitForElementToBeClickable(searchButton).click();
+	
+	public void getAllProductList() {
+		//List<WebElement> allProductListVisible=driver.findElements(By.xpath(locators.getProperty("product.allProductList")));
+		wait.waitForAllElementsToBeVisible(allProductList);
+		driver.findElement(By.xpath("//a[@href='/product_details/1']")).click();
 	}
-
-	private WebElement findProductInList(String productName) {
-		List<WebElement> products = wait.waitForAllElementsToBeVisible(productListLocator);
-		for (WebElement product : products) {
-			WebElement searchedProductName = product.findElement(By.tagName("p"));
-			if (searchedProductName.getText().equalsIgnoreCase(productName)) {
-				return product;
-			}
-		}
-		return null;
+	
+	public void verifyProductDetails() {
+		System.out.println(driver.findElement(By.xpath("//div[@class='product-information']/h2")).getText());
+		System.out.println(driver.findElement(By.xpath("//div[@class='product-information']/p[1]")).getText());
+		System.out.println(driver.findElement(By.xpath("//div[@class='product-information']/p[2]")).getText());
+		System.out.println(driver.findElement(By.xpath("//div[@class='product-information']/p[3]")).getText());
+		System.out.println(driver.findElement(By.xpath("//div[@class='product-information']/p[4]")).getText());
 	}
-
-	private void addProductToCart(WebElement productElement) {
-		Actions actions = new Actions(driver);
-		// scroll to view product button due to advertisement on page
-		wait.scrollIntoView(viewProductButton);
-
-		// Hover over the product container
-		actions.moveToElement(productElement).perform();
-
-		// Now, wait and find the 'Add to cart' button after hovering
-		productElement.findElement(viewProductButton);
-		WebElement addToCartButton = productElement.findElement(By.xpath(".//a[contains(text(),'Add to cart')]"));
-		addToCartButton.click();
-	}
-
-	private CartPage handleAddToCartModal() {
-		wait.waitForElementToBeVisible(modalContent);
-		wait.waitForElementToBeClickable(viewCartLink).click();
-		return new CartPage(driver, wait);
-	}
-
-	private HomePage handleContinueShoppingModal() {
-		wait.waitForAllElementsToBeVisible(continueShopping);
-		wait.waitForElementToBeClickable(continueShopping);
-		return new HomePage(driver, wait);
+	
+	public void brandAndCategorySection() {
+		wait.waitForElementToBeVisible(brandcategorySideBar);
+		wait.waitForElementToBeClickable(brandcategorySideBar);
 	}
 
 	public String clickOnWomenCategory() {

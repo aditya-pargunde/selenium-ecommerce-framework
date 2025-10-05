@@ -24,7 +24,7 @@ public class SignupPageTest extends BaseTest {
 	@Test(dataProvider = "registerUserData", groups = {"sanity"})
 	public void registerNewUserTest(String name, String email, String password, String title, String day, String month,
 			String year, String firstname, String lastname, String company, String address, String country,
-			String state, String city, String zip, String mobileNo) {
+			String state, String city, String zip, String mobileNo, String subject, String Message) {
 
 		SignupPage signupPage = new SignupPage(getDriver(), wait);
 		LoginPage loginPage = new LoginPage(getDriver(), wait);
@@ -60,7 +60,7 @@ public class SignupPageTest extends BaseTest {
 	@Test(dataProvider = "registerUserData")
 	public void accountDeletionCheck(String name, String email, String password, String title, String day, String month,
 			String year, String firstname, String lastname, String company, String address, String country,
-			String state, String city, String zip, String mobileNo) {
+			String state, String city, String zip, String mobileNo, String subject, String message) {
 		LoginPage loginPage = new LoginPage(getDriver(), wait);
 		HomePage homePage = new HomePage(getDriver(), wait);
 		SignupPage signupPage = new SignupPage(getDriver(), wait);

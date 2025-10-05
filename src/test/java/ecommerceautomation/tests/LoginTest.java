@@ -59,7 +59,7 @@ public class LoginTest extends BaseTest {
         }
     }
 
-    @Test(dataProvider = "invalidLoginData")
+    @Test(dataProvider = "invalidLoginData", groups= {"sanity"})
     public void invalidUserLoginTest(String email, String password) {
         LoginPage loginPage = new LoginPage(getDriver(), wait);
 

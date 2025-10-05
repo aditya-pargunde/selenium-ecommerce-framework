@@ -38,7 +38,7 @@ public class CheckoutTest extends BaseTest {
 	@Test(dataProvider = "checkoutData", groups= {"regression"})
 	public void placeOrderTest(String name, String email, String password, String title, String day, String month,
 			String year, String firstName, String lastName, String company, String address, String country,
-			String state, String city, String zipcode, String mobilenumber) {
+			String state, String city, String zipcode, String mobilenumber, String subject, String message) {
 		// Step 1: Start from the home page and add a product to the cart
 		HomePage homePage = new HomePage(getDriver(), wait);
 		ProductPage productPage = homePage.navigateToProductsPage();

@@ -34,6 +34,7 @@ public class BaseTest {
 		boolean headless = Boolean.parseBoolean(config.getProperty("headless", "false"));
 
 		WebDriver driverInstance = DriverManager.initDriver(browser, headless);
+		DriverManager.setDriver(driverInstance);
 		this.driver = driverInstance; // make sure instance variable points to ThreadLocal driver
 		wait = new WaitUtils(driver);
 

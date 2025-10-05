@@ -1,32 +1,97 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-09-27T13:58:35 IST" name="Default suite" finished-at="2025-09-27T13:59:08 IST" duration-ms="32800">
+  <suite started-at="2025-10-05T16:49:38 IST" name="Default suite" finished-at="2025-10-05T16:49:50 IST" duration-ms="11634">
     <groups>
-      <group name="sanity">
-        <method signature="ProductTest.searchAndAddProductToCart()[pri:0, instance:ecommerceautomation.tests.ProductTest@158a8276]" name="searchAndAddProductToCart" class="ecommerceautomation.tests.ProductTest"/>
-      </group> <!-- sanity -->
+      <group name="TestCases">
+        <method signature="TestCaseEight.verifyAllProductsTestEight()[pri:0, instance:ecommerceautomation.tests.TestCaseEight@158a8276]" name="verifyAllProductsTestEight" class="ecommerceautomation.tests.TestCaseEight"/>
+      </group> <!-- TestCases -->
     </groups>
-    <test started-at="2025-09-27T13:58:35 IST" name="Default test" finished-at="2025-09-27T13:59:08 IST" duration-ms="32800">
-      <class name="ecommerceautomation.tests.ProductTest">
-        <test-method is-config="true" signature="setupConfig()[pri:0, instance:ecommerceautomation.tests.ProductTest@158a8276]" started-at="2025-09-27T13:58:35 IST" name="setupConfig" finished-at="2025-09-27T13:58:35 IST" duration-ms="8" status="PASS">
+    <test started-at="2025-10-05T16:49:38 IST" name="Default test" finished-at="2025-10-05T16:49:50 IST" duration-ms="11634">
+      <class name="ecommerceautomation.tests.TestCaseEight">
+        <test-method is-config="true" signature="setupConfig()[pri:0, instance:ecommerceautomation.tests.TestCaseEight@158a8276]" started-at="2025-10-05T16:49:38 IST" name="setupConfig" finished-at="2025-10-05T16:49:38 IST" duration-ms="17" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setupConfig -->
-        <test-method is-config="true" signature="setUp()[pri:0, instance:ecommerceautomation.tests.ProductTest@158a8276]" started-at="2025-09-27T13:58:35 IST" name="setUp" finished-at="2025-09-27T13:58:55 IST" duration-ms="20621" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:ecommerceautomation.tests.TestCaseEight@158a8276]" started-at="2025-10-05T16:49:38 IST" name="setUp" finished-at="2025-10-05T16:49:45 IST" duration-ms="6920" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="searchAndAddProductToCart()[pri:0, instance:ecommerceautomation.tests.ProductTest@158a8276]" started-at="2025-09-27T13:58:55 IST" name="searchAndAddProductToCart" finished-at="2025-09-27T13:59:07 IST" duration-ms="11896" status="PASS">
+        <test-method signature="verifyAllProductsTestEight()[pri:0, instance:ecommerceautomation.tests.TestCaseEight@158a8276]" started-at="2025-10-05T16:49:45 IST" name="verifyAllProductsTestEight" finished-at="2025-10-05T16:49:50 IST" duration-ms="4450" status="FAIL">
+          <exception class="org.openqa.selenium.ElementClickInterceptedException">
+            <message>
+              <![CDATA[element click intercepted: Element <a href="/product_details/1" style="color: brown;">...</a> is not clickable at point (754, 852). Other element would receive the click: <iframe id="aswift_3" name="aswift_3" browsingtopics="true" style="min-height: auto; max-height: none; min-width: auto; max-width: none; width: 728px !important; height: 90px !important; display: block; margin: 0px auto;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="728" height="90" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allow="attribution-reporting; run-ad-auction" src="https://googleads.g.doubleclick.net/pagead/html/r20251001/r20190131/zrt_lookup_fy2021.html#RS-0-&amp;adk=1812271801&amp;client=ca-pub-1677597403311019&amp;fa=1&amp;ifi=4&amp;uci=a!4&amp;btvi=2" data-google-container-id="a!4" tabindex="0" title="Advertisement" aria-label="Advertisement" data-google-query-id="COGX1qn4jJADFYeg2AUdd-AXjg" data-load-complete="true"></iframe>
+  (Session info: chrome=140.0.7339.214)
+Build info: version: '4.23.0', revision: '4df0a231af'
+System info: os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '15.4.1', java.version: '23.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [024c4bbd7bd2580ec88702c927479756, clickElement {id=f.21A7E1A4AFACDC1DD078D787B3CCCFBB.d.31FAD2C158D9E51EA3048BD2EAC2BE0E.e.48}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 140.0.7339.214, chrome: {chromedriverVersion: 140.0.7339.207 (17230b545fd..., userDataDir: /var/folders/fh/mrx4vbm562g...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:49768}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:49768/devtoo..., se:cdpVersion: 140.0.7339.214, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on mac (024c4bbd7bd2580ec88702c927479756)] -> xpath: //a[@href='/product_details/1']]
+Session ID: 024c4bbd7bd2580ec88702c927479756]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element <a href="/product_details/1" style="color: brown;">...</a> is not clickable at point (754, 852). Other element would receive the click: <iframe id="aswift_3" name="aswift_3" browsingtopics="true" style="min-height: auto; max-height: none; min-width: auto; max-width: none; width: 728px !important; height: 90px !important; display: block; margin: 0px auto;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="728" height="90" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allow="attribution-reporting; run-ad-auction" src="https://googleads.g.doubleclick.net/pagead/html/r20251001/r20190131/zrt_lookup_fy2021.html#RS-0-&amp;adk=1812271801&amp;client=ca-pub-1677597403311019&amp;fa=1&amp;ifi=4&amp;uci=a!4&amp;btvi=2" data-google-container-id="a!4" tabindex="0" title="Advertisement" aria-label="Advertisement" data-google-query-id="COGX1qn4jJADFYeg2AUdd-AXjg" data-load-complete="true"></iframe>
+  (Session info: chrome=140.0.7339.214)
+Build info: version: '4.23.0', revision: '4df0a231af'
+System info: os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '15.4.1', java.version: '23.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [024c4bbd7bd2580ec88702c927479756, clickElement {id=f.21A7E1A4AFACDC1DD078D787B3CCCFBB.d.31FAD2C158D9E51EA3048BD2EAC2BE0E.e.48}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 140.0.7339.214, chrome: {chromedriverVersion: 140.0.7339.207 (17230b545fd..., userDataDir: /var/folders/fh/mrx4vbm562g...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:49768}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:49768/devtoo..., se:cdpVersion: 140.0.7339.214, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on mac (024c4bbd7bd2580ec88702c927479756)] -> xpath: //a[@href='/product_details/1']]
+Session ID: 024c4bbd7bd2580ec88702c927479756
+at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:501)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:485)
+at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:527)
+at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
+at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76)
+at ecommerceautomation.pages.ProductPage.getAllProductList(ProductPage.java:133)
+at ecommerceautomation.tests.TestCaseEight.verifyAllProductsTestEight(TestCaseEight.java:32)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+at org.testng.TestRunner.privateRun(TestRunner.java:741)
+at org.testng.TestRunner.run(TestRunner.java:616)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.ElementClickInterceptedException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- searchAndAddProductToCart -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:ecommerceautomation.tests.ProductTest@158a8276]" started-at="2025-09-27T13:59:07 IST" name="tearDown" finished-at="2025-09-27T13:59:08 IST" duration-ms="251" status="PASS">
+        </test-method> <!-- verifyAllProductsTestEight -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:ecommerceautomation.tests.TestCaseEight@158a8276]" started-at="2025-10-05T16:49:50 IST" name="tearDown" finished-at="2025-10-05T16:49:50 IST" duration-ms="216" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- ecommerceautomation.tests.ProductTest -->
+      </class> <!-- ecommerceautomation.tests.TestCaseEight -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

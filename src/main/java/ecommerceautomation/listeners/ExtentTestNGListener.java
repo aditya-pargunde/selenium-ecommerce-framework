@@ -49,7 +49,7 @@ public class ExtentTestNGListener implements ITestListener {
 	@Override
 	public void onTestFailure(ITestResult result) {
 		test.get().log(Status.FAIL, result.getThrowable());
-	    System.out.println("Test failed: " + result.getMethod().getMethodName());
+	    System.out.println("❌ Test failed: " + result.getMethod().getMethodName());
 
 	    // Get WebDriver from BaseTest statically
 	    WebDriver driver = BaseTest.getDriver();
@@ -60,17 +60,6 @@ public class ExtentTestNGListener implements ITestListener {
 	    } else {
 	        System.out.println("⚠️ Driver is null, screenshot cannot be captured");
 	    }
-
-        // Get WebDriver from BaseTest
-        driver = BaseTest.getDriver();
-        System.out.println("Driver in listener: " + driver);
-
-        if (driver != null) {
-            // Capture screenshot with ScreenshotUtils
-            String screenshotPath = ScreenshotUtils.captureScreenshot(driver, result.getMethod().getMethodName());
-            // Attach screenshot to report
-			test.get().addScreenCaptureFromPath(screenshotPath);
-        }
 	}
 
 	@Override

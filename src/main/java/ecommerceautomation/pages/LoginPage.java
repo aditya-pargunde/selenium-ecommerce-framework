@@ -4,6 +4,7 @@ import ecommerceautomation.utils.WaitUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -37,11 +38,17 @@ public class LoginPage {
 	private By loginButton = By.xpath(locators.getProperty("login.loginButton"));
 	private By loginErrorMessage = By.xpath(locators.getProperty("login.loginErrorMessage"));
 	private By logoutButton = By.xpath(locators.getProperty("home.logoutButton"));
+	private By loginAccountText = By.xpath(locators.getProperty("login.loginToAccountMessage"));
 	
 	
 	// ------------------- Public Methods -------------------
 	public void clickOnSignupLoginLink() {
 		wait.waitForElementToBeClickable(signupLoginLink).click();
+	}
+	
+	public void isLoginTextVisible() {
+		WebElement loginAcntMessage = driver.findElement(By.xpath(locators.getProperty("login.loginToAccountMessage")));
+		Assert.assertEquals(loginAcntMessage.getText(), "Login to your account");
 	}
 
 	public void enterEmailForLogin(String email) {

@@ -38,6 +38,9 @@ public class HomePage {
 	private By deleteAccountLink = By.xpath(locators.getProperty("home.deleteAccountLink"));
 	private By AccountDeletionSuccessMessage= By.xpath(locators.getProperty("home.AccountDeletionSuccessMessage"));
 	private By continueAfterDeletionBtn = By.xpath(locators.getProperty("account.continueButton"));
+	private By contactUsButton = By.xpath(locators.getProperty("home.ContactUsForm"));
+	private By loggedInButton = By.xpath(locators.getProperty("home.loggedInButton")); 
+	private By homeButton = By.xpath(locators.getProperty("home.homeButton"));
 
 	// ------------------- Methods -------------------
 	public boolean isUserLoggedIn() {
@@ -52,6 +55,10 @@ public class HomePage {
 		return null;
 	}
 
+	public HomePage navigateToHomePage() {
+		wait.waitForElementToBeClickable(homeButton).click();
+		return new HomePage(driver, wait);
+	}
 	public ProductPage navigateToProductsPage() {
 		wait.waitForElementToBeClickable(productsLink).click();
 		return new ProductPage(driver, wait);
@@ -73,4 +80,10 @@ public class HomePage {
 		Assert.assertEquals(DeletionSuccessMessage.getText(), "ACCOUNT DELETED!");
 		return new HomePage(driver,wait);
 	}
+	
+	public void ClickOnContactUs() {
+		wait.waitForElementToBeVisible(contactUsButton);
+        wait.waitForElementToBeClickable(contactUsButton).click();
+	}
+	
 }

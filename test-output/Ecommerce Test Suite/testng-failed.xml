@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Ecommerce Test Suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Order Tests(failed)">
+    <classes>
+      <class name="ecommerceautomation.tests.OrderConfirmationTest">
+        <methods>
+          <include name="verifyOrderConfirmation" invocation-numbers="0"/>
+          <include name="setupConfig"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- ecommerceautomation.tests.OrderConfirmationTest -->
+    </classes>
+  </test> <!-- Order Tests(failed) -->
+</suite> <!-- Failed suite [Ecommerce Test Suite] -->

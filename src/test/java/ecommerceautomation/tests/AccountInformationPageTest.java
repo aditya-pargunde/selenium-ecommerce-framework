@@ -21,9 +21,9 @@ public class AccountInformationPageTest extends BaseTest {
 	}
 
 	@Test(dataProvider = "registerUserData", groups= {"sanity"})
-	public void registerNewUserTest(String name, String email, String password, String title, String day, String month,
+	public void newAccountTest(String name, String email, String password, String title, String day, String month,
 			String year, String firstname, String lastname, String company, String address, String country,
-			String state, String city, String zip, String mobileNo) {
+			String state, String city, String zip, String mobileNo, String subject, String message) {
 
 		// Step 1: Start the signup process on the SignupPage
 		SignupPage signupPage = new SignupPage(getDriver(), wait);
