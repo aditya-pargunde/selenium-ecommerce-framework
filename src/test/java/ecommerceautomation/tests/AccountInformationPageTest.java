@@ -47,5 +47,10 @@ public class AccountInformationPageTest extends BaseTest {
 
 		// Step 5: Assert that account creation was successful
 		Assert.assertTrue(homePage.isUserLoggedIn(), "Account creation failed or user not logged in.");
+		
+		//Step 6 : delete account
+		homePage.deleteAccount();
+		homePage.verifyAccountDeletedMessage();
+		homePage.clickOnContinueAfterDeletion();
 	}
 }

@@ -55,13 +55,13 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Regression Tests</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>11/1/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>3/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Sat Oct 04 02:34:42 IST 2025</td>
+<td>Started on:</td><td>Thu Oct 09 13:25:43 IST 2025</td>
 </tr>
-<tr><td>Total time:</td><td>283 seconds (283120 ms)</td>
+<tr><td>Total time:</td><td>213 seconds (213330 ms)</td>
 </tr><tr>
-<td>Included groups:</td><td>TestCases </td>
+<td>Included groups:</td><td>regression </td>
 </tr><tr>
 <td>Excluded groups:</td><td></td>
 </tr>
@@ -76,16 +76,54 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='ecommerceautomation.tests.TestCaseTwo.ValidUserLoginTestTwo()'><b>ValidUserLoginTestTwo</b><br>Test class: ecommerceautomation.tests.TestCaseTwo<br>Parameters: John Doe, aditya@p.com, AdityaPass123, Mr., 10, July, 1992, John, Doe, MyCompany, 123 Main Street, India, Maharashtra, Pandharpur, 413304, 1234567890, This is TEST SUBJECT !, This is TEST MESSAGE !</td>
-<td><div><pre>java.lang.AssertionError: Account creation failed or user not logged in. expected [true] but found [false]
-	at ecommerceautomation.tests.TestCaseTwo.ValidUserLoginTestTwo(TestCaseTwo.java:53)
+<td title='ecommerceautomation.tests.PaymentTest.completePaymentFlowTest()'><b>completePaymentFlowTest</b><br>Test class: ecommerceautomation.tests.PaymentTest<br>Parameters: John Doe, aditya@p.com, AdityaPass123, Mr., 10, July, 1992, John, Doe, MyCompany, 123 Main Street, India, Maharashtra, Pandharpur, 413304, 1234567890, This is TEST SUBJECT !, This is TEST MESSAGE !, John Doe, 1234 4567 6789, 123, 3, 2025</td>
+<td><div><pre>org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element &lt;a data-product-id=&quot;1&quot; class=&quot;btn btn-default add-to-cart&quot;&gt;...&lt;/a&gt; is not clickable at point (754, 4). Other element would receive the click: &lt;a data-product-id=&quot;1&quot; class=&quot;btn btn-default add-to-cart&quot;&gt;...&lt;/a&gt;
+  (Session info: chrome=141.0.7390.65)
+Build info: version: &apos;4.23.0&apos;, revision: &apos;4df0a231af&apos;
+System info: os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;15.4.1&apos;, java.version: &apos;23.0.2&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [9485d148014ccbd95e83a59280d71c18, clickElement {id=f.B52B0FDCDF30E9698544BD6B3467B957.d.5F03ADAD8C40F363771F587A434998B8.e.127}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 141.0.7390.65, chrome: {chromedriverVersion: 141.0.7390.65 (b2ec783d2b51..., userDataDir: /var/folders/fh/mrx4vbm562g...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:62924}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:62924/devtoo..., se:cdpVersion: 141.0.7390.65, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[[[ChromeDriver: chrome on mac (9485d148014ccbd95e83a59280d71c18)] -&gt; xpath: //div[@class=&apos;productinfo text-center&apos;]]] -&gt; xpath: .//a[contains(text(),&apos;Add to cart&apos;)]]
+Session ID: 9485d148014ccbd95e83a59280d71c18
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:527)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76)
+	at ecommerceautomation.pages.ProductPage.addProductToCart(ProductPage.java:102)
+	at ecommerceautomation.pages.ProductPage.searchProduct(ProductPage.java:123)
+	at ecommerceautomation.tests.PaymentTest.completePaymentFlowTest(PaymentTest.java:72)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
-... Removed 28 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1309744648", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1309744648'><pre>java.lang.AssertionError: Account creation failed or user not logged in. expected [true] but found [false]
-	at org.testng.Assert.fail(Assert.java:111)
-	at org.testng.Assert.failNotEquals(Assert.java:1590)
-	at org.testng.Assert.assertTrue(Assert.java:57)
-	at ecommerceautomation.tests.TestCaseTwo.ValidUserLoginTestTwo(TestCaseTwo.java:53)
+... Removed 28 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace956315623", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace956315623'><pre>org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element &lt;a data-product-id=&quot;1&quot; class=&quot;btn btn-default add-to-cart&quot;&gt;...&lt;/a&gt; is not clickable at point (754, 4). Other element would receive the click: &lt;a data-product-id=&quot;1&quot; class=&quot;btn btn-default add-to-cart&quot;&gt;...&lt;/a&gt;
+  (Session info: chrome=141.0.7390.65)
+Build info: version: &apos;4.23.0&apos;, revision: &apos;4df0a231af&apos;
+System info: os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;15.4.1&apos;, java.version: &apos;23.0.2&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [9485d148014ccbd95e83a59280d71c18, clickElement {id=f.B52B0FDCDF30E9698544BD6B3467B957.d.5F03ADAD8C40F363771F587A434998B8.e.127}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 141.0.7390.65, chrome: {chromedriverVersion: 141.0.7390.65 (b2ec783d2b51..., userDataDir: /var/folders/fh/mrx4vbm562g...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:62924}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:62924/devtoo..., se:cdpVersion: 141.0.7390.65, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[[[ChromeDriver: chrome on mac (9485d148014ccbd95e83a59280d71c18)] -&gt; xpath: //div[@class=&apos;productinfo text-center&apos;]]] -&gt; xpath: .//a[contains(text(),&apos;Add to cart&apos;)]]
+Session ID: 9485d148014ccbd95e83a59280d71c18
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:501)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:485)
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:527)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76)
+	at ecommerceautomation.pages.ProductPage.addProductToCart(ProductPage.java:102)
+	at ecommerceautomation.pages.ProductPage.searchProduct(ProductPage.java:123)
+	at ecommerceautomation.tests.PaymentTest.completePaymentFlowTest(PaymentTest.java:72)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
@@ -113,8 +151,8 @@ function toggleAllBoxes() {
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
 </pre></div></td>
-<td>11</td>
-<td>ecommerceautomation.tests.TestCaseTwo@6bf0219d</td></tr>
+<td>19</td>
+<td>ecommerceautomation.tests.PaymentTest@186f8716</td></tr>
 </table><p>
 <table width='100%' border='1' class='invocation-passed'>
 <tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
@@ -125,60 +163,20 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='ecommerceautomation.tests.TestCaseSixteen.LoginBeforeCheckoutTestSixteen()'><b>LoginBeforeCheckoutTestSixteen</b><br>Test class: ecommerceautomation.tests.TestCaseSixteen<br>Parameters: A, a1@z.com, Test, John Doe, 1234 4567 6789, 123.0, 3.0, 2025.0</td>
+<td title='ecommerceautomation.tests.CategoryBrandTest.checkCategoryAndBrandTest()'><b>checkCategoryAndBrandTest</b><br>Test class: ecommerceautomation.tests.CategoryBrandTest</td>
 <td></td>
-<td>25</td>
-<td>ecommerceautomation.tests.TestCaseSixteen@186f8716</td></tr>
+<td>39</td>
+<td>ecommerceautomation.tests.CategoryBrandTest@574b560f</td></tr>
 <tr>
-<td title='ecommerceautomation.tests.TestCaseFourteen.RegisterWhileCheckoutTestFourteen()'><b>RegisterWhileCheckoutTestFourteen</b><br>Test class: ecommerceautomation.tests.TestCaseFourteen<br>Parameters: John Doe, aditya@p.com, AdityaPass123, Mr., 10, July, 1992, John, Doe, MyCompany, 123 Main Street, India, Maharashtra, Pandharpur, 413304, 1234567890, This is TEST SUBJECT !, This is TEST MESSAGE !, John Doe, 1234 4567 6789, 123.0, 3.0, 2025.0</td>
+<td title='ecommerceautomation.tests.CheckoutTest.placeOrderCheckoutTest()'><b>placeOrderCheckoutTest</b><br>Test class: ecommerceautomation.tests.CheckoutTest<br>Parameters: John Doe, aditya@p.com, AdityaPass123, Mr., 10, July, 1992, John, Doe, MyCompany, 123 Main Street, India, Maharashtra, Pandharpur, 413304, 1234567890, This is TEST SUBJECT !, This is TEST MESSAGE !</td>
 <td></td>
-<td>33</td>
-<td>ecommerceautomation.tests.TestCaseFourteen@157853da</td></tr>
+<td>38</td>
+<td>ecommerceautomation.tests.CheckoutTest@37f1104d</td></tr>
 <tr>
-<td title='ecommerceautomation.tests.TestCaseNine.SearchProductTestNine()'><b>SearchProductTestNine</b><br>Test class: ecommerceautomation.tests.TestCaseNine</td>
+<td title='ecommerceautomation.tests.OrderConfirmationTest.verifyOrderConfirmationTest()'><b>verifyOrderConfirmationTest</b><br>Test class: ecommerceautomation.tests.OrderConfirmationTest<br>Parameters: John Doe, aditya@p.com, AdityaPass123, Mr., 10, July, 1992, John, Doe, MyCompany, 123 Main Street, India, Maharashtra, Pandharpur, 413304, 1234567890, This is TEST SUBJECT !, This is TEST MESSAGE !, John Doe, 1234 4567 6789, 123, 3, 2025</td>
 <td></td>
-<td>14</td>
-<td>ecommerceautomation.tests.TestCaseNine@36b4fe2a</td></tr>
-<tr>
-<td title='ecommerceautomation.tests.TestCaseNineteen.BrandAndCategoryTestNineteen()'><b>BrandAndCategoryTestNineteen</b><br>Test class: ecommerceautomation.tests.TestCaseNineteen</td>
-<td></td>
-<td>29</td>
-<td>ecommerceautomation.tests.TestCaseNineteen@574b560f</td></tr>
-<tr>
-<td title='ecommerceautomation.tests.TestCaseSeventeen.RemoveProductFromCartTestSeventeen()'><b>RemoveProductFromCartTestSeventeen</b><br>Test class: ecommerceautomation.tests.TestCaseSeventeen</td>
-<td></td>
-<td>14</td>
-<td>ecommerceautomation.tests.TestCaseSeventeen@3cc1435c</td></tr>
-<tr>
-<td title='ecommerceautomation.tests.TestCaseEight.verifyAllProductsTestEight()'><b>verifyAllProductsTestEight</b><br>Test class: ecommerceautomation.tests.TestCaseEight</td>
-<td></td>
-<td>6</td>
-<td>ecommerceautomation.tests.TestCaseEight@568ff82</td></tr>
-<tr>
-<td title='ecommerceautomation.tests.TestCaseFour.UserLogoutTestFour()'><b>UserLogoutTestFour</b><br>Test class: ecommerceautomation.tests.TestCaseFour<br>Parameters: A, a1@z.com, Test</td>
-<td></td>
-<td>5</td>
-<td>ecommerceautomation.tests.TestCaseFour@2a266d09</td></tr>
-<tr>
-<td title='ecommerceautomation.tests.TestCaseFive.registerExistingUserTestFive()'><b>registerExistingUserTestFive</b><br>Test class: ecommerceautomation.tests.TestCaseFive<br>Parameters: A, a1@z.com, Test</td>
-<td></td>
-<td>2</td>
-<td>ecommerceautomation.tests.TestCaseFive@3943a2be</td></tr>
-<tr>
-<td title='ecommerceautomation.tests.TestCaseSix.ContactUsTestSix()'><b>ContactUsTestSix</b><br>Test class: ecommerceautomation.tests.TestCaseSix<br>Parameters: John Doe, aditya@p.com, AdityaPass123, Mr., 10, July, 1992, John, Doe, MyCompany, 123 Main Street, India, Maharashtra, Pandharpur, 413304, 1234567890, This is TEST SUBJECT !, This is TEST MESSAGE !</td>
-<td></td>
-<td>4</td>
-<td>ecommerceautomation.tests.TestCaseSix@28975c28</td></tr>
-<tr>
-<td title='ecommerceautomation.tests.TestCaseThree.InvalidUserLoginTestThree()'><b>InvalidUserLoginTestThree</b><br>Test class: ecommerceautomation.tests.TestCaseThree<br>Parameters: Invalid User, invaliduser@example.com, WrongPass</td>
-<td></td>
-<td>2</td>
-<td>ecommerceautomation.tests.TestCaseThree@236e3f4e</td></tr>
-<tr>
-<td title='ecommerceautomation.tests.TestCaseOne.RegisterUserTestOne()'><b>RegisterUserTestOne</b><br>Test class: ecommerceautomation.tests.TestCaseOne<br>Parameters: A, a@z3.com, Test, Mr., 10, July, 1992, John, Doe, MyCompany, 123 Main Street, India, Maharashtra, Pandharpur, 413304, 1234567890, This is TEST SUBJECT !, This is TEST MESSAGE !</td>
-<td></td>
-<td>9</td>
-<td>ecommerceautomation.tests.TestCaseOne@5ab9e72c</td></tr>
+<td>51</td>
+<td>ecommerceautomation.tests.OrderConfirmationTest@6bf0219d</td></tr>
 </table><p>
 </body>
 </html>

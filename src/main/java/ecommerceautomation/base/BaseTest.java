@@ -35,7 +35,7 @@ public class BaseTest {
 
 		WebDriver driverInstance = DriverManager.initDriver(browser, headless);
 		DriverManager.setDriver(driverInstance);
-		this.driver = driverInstance; // make sure instance variable points to ThreadLocal driver
+		this.driver = driverInstance;
 		wait = new WaitUtils(driver);
 
 		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(180));

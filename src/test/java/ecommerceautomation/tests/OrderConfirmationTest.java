@@ -57,7 +57,7 @@ public class OrderConfirmationTest extends BaseTest {
 	}
 
 	@Test(dataProvider = "orderData", groups = { "regression" })
-	public void verifyOrderConfirmation(String name, String email, String password, String title, String day,
+	public void verifyOrderConfirmationTest(String name, String email, String password, String title, String day,
 			String month, String year, String firstName, String lastName, String company, String address,
 			String country, String state, String city, String zipcode, String mobile, String subject, String message,
 			String nameOnCard, String cardNumber, String cvc, String expiryMonth, String expiryYear) {

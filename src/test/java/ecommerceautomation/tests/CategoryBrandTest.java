@@ -13,7 +13,7 @@ import ecommerceautomation.pages.ProductPage;
 @Listeners(ExtentTestNGListener.class)
 public class CategoryBrandTest extends BaseTest {
 	@Test(groups= {"regression"})
-	public void checkCategoryAndBrand() {
+	public void checkCategoryAndBrandTest() {
 		HomePage homePage = new HomePage(getDriver(), wait);
 		ProductPage productPage = new ProductPage(getDriver(), wait);
 		// Step 1: click on Women category and sub category

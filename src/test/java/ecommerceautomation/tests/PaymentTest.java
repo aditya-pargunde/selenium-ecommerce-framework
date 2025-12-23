@@ -61,7 +61,7 @@ public class PaymentTest extends BaseTest {
 	}
 
 	@Test(dataProvider = "UserAndPaymentData", groups = { "regression" })
-	public void completePaymentFlow(String name, String email, String password, String title, String day, String month,
+	public void completePaymentFlowTest(String name, String email, String password, String title, String day, String month,
 			String year, String firstName, String lastName, String company, String address, String country,
 			String state, String city, String zipcode, String mobile, String subject, String message, String nameOnCard,
 			String cardNumber, String cvc, String expiryMonth, String expiryYear) {

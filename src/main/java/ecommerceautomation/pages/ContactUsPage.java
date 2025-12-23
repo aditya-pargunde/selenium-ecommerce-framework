@@ -66,9 +66,9 @@ public class ContactUsPage {
 	public void uploadContactFormFile() {
 		wait.waitForAllElementsToBeVisible(contactFormFileUploadButton);
 		WebElement FileUploadButton = driver.findElement(By.xpath(locators.getProperty("contact.FileUpload")));
-		FileUploadButton.sendKeys("/Users/adityapargunde/Downloads/Manual Testing Qna.pdf");
+		FileUploadButton.sendKeys("/Users/adityapargunde/Downloads/TestData.xlsx");
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-		wait.until(ExpectedConditions.attributeContains(FileUploadButton, "value", "Manual Testing Qna.pdf"));
+		wait.until(ExpectedConditions.attributeContains(FileUploadButton, "value", "TestData.xlsx"));
 	}
 
 	public void contactFileUploadSubmit() {

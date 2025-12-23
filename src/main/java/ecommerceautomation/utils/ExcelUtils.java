@@ -32,6 +32,7 @@ public class ExcelUtils {
     public List<String[]> getAllRows() {
         List<String[]> data = new ArrayList<>();
         Iterator<Row> rowIterator = sheet.iterator();
+        DataFormatter formatter = new DataFormatter(); 
 
         boolean header = true;
         while (rowIterator.hasNext()) {
@@ -47,7 +48,10 @@ public class ExcelUtils {
             boolean isEmptyRow = true;
             for (int i = 0; i < cellCount; i++) {
                 Cell cell = row.getCell(i, Row.MissingCellPolicy.CREATE_NULL_AS_BLANK);
-                String value = cell.toString().trim();
+                //String value = cell.toString().trim();
+                
+                // ✅ Use DataFormatter to preserve exact text (no .0 issue)
+                String value = formatter.formatCellValue(cell).trim();
                 rowData[i] = value;
                 if (!value.isEmpty()) {
                     isEmptyRow = false; // found actual data

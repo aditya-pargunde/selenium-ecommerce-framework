@@ -15,7 +15,7 @@ import org.testng.annotations.Test;
 public class CartTest extends BaseTest {
 
 	@Test(groups = {"sanity"})
-	public void verifyCartOperations() {
+	public void verifyCartOperationsCartTest() {
 		// this is to remove a product from cart
 
 		// Step 1: Navigate to the Home Page
@@ -43,7 +43,7 @@ public class CartTest extends BaseTest {
 	}
 
 	@Test
-	public void proceedToCheckoutFlow() {
+	public void proceedToCheckoutFlowCartTest() {
 		// Step 1: Navigate to Products Page and add a product to the cart
 		HomePage homePage = new HomePage(getDriver(), wait);
 		ProductPage productPage = homePage.navigateToProductsPage();

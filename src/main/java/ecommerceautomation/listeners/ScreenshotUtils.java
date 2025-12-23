@@ -24,7 +24,7 @@ public class ScreenshotUtils {
             Files.createDirectories(Paths.get(baseDir)); // create if not exists
             byte[] src = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
             Files.write(Paths.get(path), src);
-            System.out.println("✅ Screenshot saved at: " + path);
+            System.out.println("📸 Screenshot saved at: " + path);
         } catch (IOException e) {
             e.printStackTrace();
         }
